@@ -1,0 +1,122 @@
+/**
+ * Place your custom styles here.
+ */
+body {
+    color: #333333;
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 1.2;
+}
+.container-fluid {
+    font-family: "Roboto Condensed";
+    text-align: center;
+    padding: 0 10%;
+}
+H1, H2, H3, H4 {
+    text-align: left;
+    font-family: 'BebasNeueBold';
+}
+a {
+     color: #232323;
+}
+a:hover {
+    text-decoration: none;
+    color:  #e74c3c;
+}
+body {
+    color: #333333;
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 1.2;
+}
+.main-menu {
+   padding: 10px;
+}
+.region-top-links H4, .region-top-links H3 {
+    float: left;
+    padding: 0 5px;
+    line-height: 30px;
+}
+.container-fluid {
+    font-family: "Roboto Condensed";
+    text-align: center;
+}
+.region-top-links H4 {
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+.top-links {
+    background-color: #000;
+    text-align: right;
+}
+#navbar .block {
+    display: inline-block;
+    vertical-align: middle;
+}
+.region-top-links {
+    color: #fff;
+    font-family: "BebasNeueBold";
+    font-size: 22px;
+    padding: 5px 20px;
+    text-align: left;
+}
+.region-top-links H3 {
+    margin: 0;
+}
+.navbar-brand {
+    float: none;
+    font-family: "BebasNeueBold";
+    font-size: 3em !important;
+    font-weight: 500;
+    line-height: 50px;
+}
+.navbar-brand {
+    float: left;
+    font-size: 19px;
+    height: 50px;
+    line-height: 21px;
+    padding: 14.5px 15px;
+}
+.logo {
+    padding-top: 10px;
+}
+#navbar {
+    border-bottom: 2px solid #e74c3c;
+    margin: 0;
+}
+.main-menu {
+    padding: 10px;
+}
+#top-line {
+   vertical-align: middle; 
+}
+.top-line-block {
+    vertical-align: middle;
+}
+.dropdown {
+    font-family: "BebasNeueBold";
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+.region-top-header-buttons {
+    padding-top: 20px;
+}
+.footer h2 {
+    color: #000;
+    font-family: "BebasNeueBold";
+    font-size: 20px;
+    font-weight: bold;
+}
+.footer .block {
+    text-align: left;
+    color: #666666;
+}
+.footer .nav > li > a {
+    padding: 0;
+}
+.footer .nav > li > a:hover {
+    background: none;
+}
