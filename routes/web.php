@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
+
+Route::get('resizeImage', 'ImageController@resizeImage');
+Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
+
+
+Route::get('admin/slide/add', 'SliderController@add');
+Route::post('admin/slide/addPost',['as'=>'addPost','uses'=>'SliderController@addPost']);
