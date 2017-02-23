@@ -32,6 +32,9 @@ body {
 .main-menu {
    padding: 10px;
 }
+.row {
+    margin: 0;
+}
 .region-top-links H4, .region-top-links H3 {
     float: left;
     padding: 0 5px;

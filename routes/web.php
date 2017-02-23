@@ -19,3 +19,11 @@ Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@
 
 Route::get('admin/slide/add', 'SliderController@add');
 Route::post('admin/slide/addPost',['as'=>'addPost','uses'=>'SliderController@addPost']);
+Route::delete('admin/slide/delete/{slide}', function( \App\Slide $slide ) {
+	$slide->delete();
+	return redirect('admin/slide/add');
+})->name('slideDelete');
+
+
+//Route::get('admin/categories', 'CategoryController@show');
+//Route::get('admin/categories/import', 'CategoryController@import');
