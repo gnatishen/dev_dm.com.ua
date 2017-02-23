@@ -25,5 +25,5 @@ Route::delete('admin/slide/delete/{slide}', function( \App\Slide $slide ) {
 })->name('slideDelete');
 
 
-//Route::get('admin/categories', 'CategoryController@show');
-//Route::get('admin/categories/import', 'CategoryController@import');
+Route::get('admin/categories', 'CategoryController@show');
+Route::get('admin/categories/import', 'CategoryController@import');
