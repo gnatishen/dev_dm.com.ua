@@ -4,9 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Category;
 
 class CategoryController extends Controller
 {
+
+    private function buildTree(array $elements, $parentId = 0) {
+        $branch = array();
+
+        foreach ($elements as $element) {
+            if ($element['parent_id'] == $parentId) {
+                $children = $this->buildTree($elements, $element['id']);
+                if ($children) {
+                    $element['children'] = $children;
+                }
+                else {
+                    $element['children']= array();
+                }
+                $branch[] = $element;
+            }
+        }
+
+        return $branch;
+    }
+
+    public function show() {
+        $rows = Category::all()->toArray();
+        $tree = $this->buildTree($rows);
+
+
+        
+        return view('mainMenu')
+            ->with('categories', $tree);
+    }
 
     public function import() {
     	$dbConnect = DB::connection('mysql2');
@@ -21,12 +51,23 @@ class CategoryController extends Controller
     		$category->title = $category->name;
     		
     		$urlLatin = explode('/',$categoryUrlLatin['0']->alias);
-    		$category->parent_id = array_slice($urlLatin, -1)[0];
+    		$category->url_latin = array_slice($urlLatin, -1)[0];
     		//$category->parent = $categoryParent['0']['parent'];
 
-    		dump($category);
-    	}
+            $category_tmp = new Category;
+            $category_tmp->fill(array(
+                'id' => $category->id,
+                'title' => $category->title,
+                'parent_id' => $category->parent_id,
+                'weight' => $category->weight,
+                'url_latin' => $category->url_latin
+                ));
 
+            $category_tmp ->save();
+    		//dump($category);
+            //die;
+    	}
+        
     	return 'ok';
     }
 }

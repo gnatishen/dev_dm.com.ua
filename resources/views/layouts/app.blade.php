@@ -38,12 +38,8 @@
                 <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
             </div>
             <div class="main-menu col-sm-7">
-                        <ul class="menu nav navbar-nav">
-                            <li class="expanded dropdown"><a href="">ДЛЯ МОТОЦИКЛИСТА</a></li>
-                            <li class="expanded dropdown"><a href="">ДЛЯ МОТОЦИКЛИСТА</a></li>
-                            <li class="expanded dropdown"><a href="">ДЛЯ МОТОЦИКЛИСТА</a></li>
-                            <li class="expanded dropdown"><a href="">ДЛЯ МОТОЦИКЛИСТА</a></li>
-                        </ul>
+                @inject('menu', 'App\Http\Controllers\CategoryController')
+                {!! $menu->show() !!}
             </div>           
             <div class="region region-top-header-buttons col-sm-3">
                     <section id="block-user-login" class="block block-user clearfix">
