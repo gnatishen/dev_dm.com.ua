@@ -9,18 +9,21 @@ use App\Category;
 class CategoryController extends Controller
 {
 
-    private function buildTree(array $elements, $parentId = 0) {
+    private function buildTree(array $elements, $parentId = 0, $level = 0) {
         $branch = array();
-
+        $level++;
         foreach ($elements as $element) {
             if ($element['parent_id'] == $parentId) {
-                $children = $this->buildTree($elements, $element['id']);
+                $children = $this->buildTree($elements, $element['id'], $level );
                 if ($children) {
                     $element['children'] = $children;
                 }
                 else {
                     $element['children']= array();
                 }
+                $element['level'] = $level;
+                
+
                 $branch[] = $element;
             }
         }

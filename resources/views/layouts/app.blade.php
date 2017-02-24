@@ -11,13 +11,18 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/BebasNeueBold/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/BebasNeueLight/style.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/PTSans-Regular/style.css') }}" rel="stylesheet">
     <link media="all" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,regular,italic,700,700italic&subset=greek-ext,latin-ext,cyrillic" rel="stylesheet" type="text/css">
+    
 
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -34,14 +39,24 @@
             </div>
         </div>
         <div id="top-line" class="row">
-            <div class="logo top-line-block col-sm-2">
-                <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
-            </div>
-            <div class="main-menu col-sm-7">
-                @inject('menu', 'App\Http\Controllers\CategoryController')
-                {!! $menu->show() !!}
+            <div class="col-sm-10">
+                    <nav class="navbar" role="navigation">
+                       <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        @inject('menu', 'App\Http\Controllers\CategoryController')
+                        {!! $menu->show() !!}
+                    </div>
+                </nav>
             </div>           
-            <div class="region region-top-header-buttons col-sm-3">
+            <div class="col-sm-2">
                     <section id="block-user-login" class="block block-user clearfix">
                         <div><a href="/register">Вход</a></div>
                     </section>
