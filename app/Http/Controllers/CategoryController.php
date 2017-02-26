@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Category;
+use App\Product;
 
 class CategoryController extends Controller
 {
@@ -31,7 +32,7 @@ class CategoryController extends Controller
         return $branch;
     }
 
-    public function show() {
+    public function index() {
         $rows = Category::all()->toArray();
         $tree = $this->buildTree($rows);
 
@@ -39,6 +40,15 @@ class CategoryController extends Controller
         
         return view('mainMenu')
             ->with('categories', $tree);
+    }
+
+    public function show($id) {
+        $products = Product::all()->where('category_id',$id)->toArray();
+        $catalog = Category::all()->where('id',$id)->first();
+
+        return view('catalog-page')
+            ->with('products', $products)
+            ->with('catalog_name',$catalog->title);
     }
 
     public function import() {

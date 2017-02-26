@@ -4,7 +4,7 @@
 @endif
 
 <li class="{{ $class }}">
-	<a href="{{ $category['url_latin'] }}" class="dropdown-toggle" >{{ $category['title'] }}
+	<a href="/catalog/{{ $category['id'] }}" class="dropdown-toggle" >{{ $category['title'] }}
 		
 		@if ( count($category['children']) > 0 )
 			<span class="caret"></span>

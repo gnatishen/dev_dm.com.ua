@@ -52,7 +52,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         @inject('menu', 'App\Http\Controllers\CategoryController')
-                        {!! $menu->show() !!}
+                        {!! $menu->index() !!}
                     </div>
                 </nav>
             </div>           

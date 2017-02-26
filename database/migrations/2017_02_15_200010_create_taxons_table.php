@@ -18,7 +18,6 @@ class CreateTaxonsTable extends Migration
             $table->string('title');
             $table->integer('vocab_id');
             $table->string('url_latin');
-            $table->string('product_ids')->default('');
             $table->timestamps();
         });
     }

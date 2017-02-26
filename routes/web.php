@@ -25,5 +25,21 @@ Route::delete('admin/slide/delete/{slide}', function( \App\Slide $slide ) {
 })->name('slideDelete');
 
 
-Route::get('admin/categories', 'CategoryController@show');
+Route::get('admin/categories', 'CategoryController@index');
 Route::get('admin/categories/import', 'CategoryController@import');
+Route::get('catalog/{id}','CategoryController@show');
+
+
+//products
+Route::get('admin/product/add', 'ProductController@add');
+Route::post('admin/product/addPost',['as'=>'addPost','uses'=>'SliderController@addPost']);
+Route::delete('admin/product/delete/{product}', function( \App\Product $product ) {
+	$product->delete();
+	return redirect('products');
+})->name('productDelete');
+Route::get('admin/product/import', 'ProductController@import');
+Route::get('products', 'ProductController@index');
+
+//taxons
+Route::get('admin/taxons', 'TaxonController@index');
+Route::get('admin/taxon/import', 'TaxonController@import');
