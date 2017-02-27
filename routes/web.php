@@ -46,3 +46,6 @@ Route::get('product/{id}','ProductController@show');
 //taxons
 Route::get('admin/taxons', 'TaxonController@index');
 Route::get('admin/taxon/import', 'TaxonController@import');
+
+//cart
+Route::get('cart','CartController@show');

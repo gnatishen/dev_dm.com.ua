@@ -182,6 +182,7 @@ return [
 
 
         'Intervention\Image\ImageServiceProvider',
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
 
     ],
 
@@ -234,6 +235,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => 'Intervention\Image\Facades\Image',
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
 
     ],
 
