@@ -40,6 +40,9 @@ Route::delete('admin/product/delete/{product}', function( \App\Product $product 
 Route::get('admin/product/import', 'ProductController@import');
 Route::get('products', 'ProductController@index');
 
+Route::get('admin/product/img_resize','ProductController@imgResize');
+Route::get('product/{id}','ProductController@show');
+
 //taxons
 Route::get('admin/taxons', 'TaxonController@index');
 Route::get('admin/taxon/import', 'TaxonController@import');

@@ -5,15 +5,50 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Product;
+use Image;
+use File;
 
 class ProductController extends Controller
 {
     
-	public function show() {
+	public function show($id) {
 
-       $rows = Category::all()->get();
+       $product = Product::all()->where('id',$id)->first();
        
-        return $rows;
+       return view('product-cart')
+       			->with('product',$product);
+    }
+
+    public function imgResize() {
+
+    	$images = Product::select('images')->get()->toArray();
+    	ini_set('max_execution_time', 3600);
+    	ini_set('memory_limit','500M');
+
+    	foreach ($images as $image) {
+    		if ( $image['images'] ) {
+    			$images = explode(' ', $image['images']);
+    			foreach ($images as $image) {
+    				$destinationPath = public_path('images/products/carousel-small');
+    				$realPath = public_path('images/products/original');
+
+    				$img_name = $image;
+    				if (!File::exists($realPath.'/'.$image)) {
+    					$img_name = 'no-photo.png';
+    				}
+
+        			$img = Image::make($realPath.'/'.$img_name);
+        			$img->resize(90, 90, function ($constraint) {
+		    						$constraint->aspectRatio();
+									})
+        			->save($destinationPath.'/'.$image);
+        			print "$image <br>";
+    			}
+    		}
+    	}
+    	$status = "ok";
+
+    	return view('admin-page')->with("status", $status);
     }
 
     public function import() {

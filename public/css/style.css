@@ -44,14 +44,14 @@ body {
 .region-top-links H4, .region-top-links H3 {
     float: left;
     padding: 0 5px;
-    line-height: 30px;
+    line-height: 20px;
 }
 .container-fluid {
     font-family: "Roboto Condensed";
     text-align: center;
 }
 .region-top-links H4 {
-    line-height: 20px;
+    line-height: 12px;
     margin-bottom: 0;
     margin-top: 5px;
 }
@@ -170,7 +170,9 @@ body {
     text-transform: uppercase;
     transition: all 0.3s ease 0s;
 }
-
+.catalog-items {
+  padding: 50px 0;
+}
 .catalog-items .product-item {
     text-align: center;
     background-color: white;
@@ -197,4 +199,43 @@ body {
 }
 .catalog-items .product-item .product-title {
   height: 30px;
+}
+.catalog-items .product-item .image {
+  height: 120px;
+}
+
+.admin-content {
+  padding: 30px 10px;
+  text-align: left;
+}
+.product-cart {
+  padding: 20px 0;
+  text-align: left;
+}
+.product-cart .title H2 {
+    color: #7f7f7f;
+    display: block;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 28px;
+    padding: 0 100px 20px 0;
+    text-transform: uppercase;
+}
+.product-cart .price {
+  font-family: "BebasNeueBold";
+  font-size: 28px;
+}
+.product-cart .info {
+  padding-top: 30px;
+}
+.product-cart .info .panel-title {
+  font-size: 22px;
+  color: #000;
+}
+.product-cart .info .panel-collapse{
+  line-height: 1.5;
+  font-family: "Roboto Condensed";
+}
+.product-cart .info .panel-collapse p {
+  margin-top: 10px;
 }
