@@ -1,7 +1,34 @@
 @extends('layouts.app')
 
 @section('slider')
-
+	<div class="modal fade" id="orderClickModal" 
+	     tabindex="-1" role="dialog" 
+	     aria-labelledby="orderClickodalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" 
+	          data-dismiss="modal" 
+	          aria-label="Close">
+	          <span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" 
+	        id="orderClickModalLabel">ЗАКАЗ В 1 КЛИК</h4>
+	      </div>
+				{!! Form::open(array('method'=>'POST', 'id'=>'myform')) !!}
+				<div class="modal-body">
+						<label for='phone'><h4>НОМЕР ТЕЛЕФОНА</h4></label>
+						{!! Form::text('phone', null,array('class' => 'form-control phone-input','placeholder'=>'(000)-000-00-00', 'data-mask="(000)-000-00-00"')) !!} 
+						<label for='body'><h4>КОММЕНТАРИЙ</h4></label>
+						{!! Form::textarea('body', null,array('class' => 'form-control')) !!}
+				</div>
+				<div class="modal-footer">
+					<p>{!! Form::button('ЗАКАЗАТЬ', array('class'=>'send-btn btn btn-primary btn-lg')) !!}</p>
+					
+				</div>
+				{!! Form::close() !!}
+	    </div>
+	  </div>
+	</div>
 @endsection
 @section('content')
 	<div class="product-cart row">
@@ -24,6 +51,11 @@
 			</div>
 			<div class="price">
 				{{ $product->price }} ГРН.
+			</div>
+			<div class="buttons-form">
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#orderClickModal">
+					ЗАКАЗАТЬ В 1 КЛИК
+				</button>				
 			</div>
 			<div class="info">
 				 <div class="panel-group" id="accordion">

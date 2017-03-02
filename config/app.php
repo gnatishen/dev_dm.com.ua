@@ -182,7 +182,7 @@ return [
 
 
         'Intervention\Image\ImageServiceProvider',
-        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
     ],
 

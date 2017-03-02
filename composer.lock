@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdc2d91e372c9c24037d8a5c5249e00c",
+    "content-hash": "9522ef6b279892276914bc8c1bb956a9",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -262,6 +262,48 @@
                 "url"
             ],
             "time": "2017-02-21T01:20:32+00:00"
+        },
+        {
+            "name": "igorescobar/jquery-mask-plugin",
+            "version": "v1.14.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kamihouse/jQuery-Mask-Plugin.git",
+                "reference": "678a7df1f0bb275ce53f365b91af99d86850978d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kamihouse/jQuery-Mask-Plugin/zipball/678a7df1f0bb275ce53f365b91af99d86850978d",
+                "reference": "678a7df1f0bb275ce53f365b91af99d86850978d",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Escobar",
+                    "email": "blog@igorescobar.com",
+                    "homepage": "https://about.me/igorescobar",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Thiago Pereira Rosa",
+                    "email": "thiagor@engineer.com",
+                    "homepage": "http://coderi.com.br",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "A jQuery Plugin to make masks on form fields and html elements.",
+            "homepage": "https://github.com/igorescobar/jQuery-Mask-Plugin",
+            "keywords": [
+                "jquery",
+                "mask",
+                "plugin"
+            ],
+            "time": "2016-04-27T16:16:55+00:00"
         },
         {
             "name": "intervention/image",
@@ -2288,6 +2330,51 @@
                 "test"
             ],
             "time": "2015-05-11T14:41:42+00:00"
+        },
+        {
+            "name": "lrgt/laravel-form-ajax-validation",
+            "version": "5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guicho0601/laravel-form-ajax-validation.git",
+                "reference": "9a54ed5ce0bf56ec23a12932320718ab1fa471f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guicho0601/laravel-form-ajax-validation/zipball/9a54ed5ce0bf56ec23a12932320718ab1fa471f0",
+                "reference": "9a54ed5ce0bf56ec23a12932320718ab1fa471f0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.2.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Lrgt\\LaravelFormAjaxValidation": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luis Ramos",
+                    "email": "guicholarg@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make ajax validation with Laravel Requests for forms with bootstrap",
+            "homepage": "https://github.com/guicho0601/laravel-form-ajax-validation",
+            "keywords": [
+                "ajax",
+                "form",
+                "laravel",
+                "validation"
+            ],
+            "time": "2016-05-03T12:36:48+00:00"
         },
         {
             "name": "mockery/mockery",

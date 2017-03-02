@@ -29,6 +29,14 @@ a:hover {
     text-decoration: none;
     color:  #e74c3c;
 }
+.btn-lg {
+  background-color: #232323;
+  border: none;
+}
+.btn-lg:hover,
+.btn-lg:focus {
+  background-color: #ccc;
+}
 body {
     color: #333333;
     font-family: sans-serif;
@@ -238,4 +246,14 @@ body {
 }
 .product-cart .info .panel-collapse p {
   margin-top: 10px;
+}
+#orderClickModal .modal-dialog {
+  width: 300px;
+  text-align: center;
+}
+#orderClickModal .modal-dialog TEXTAREA {
+  height: 100px;
+}
+#orderClickModal .modal-dialog .btn {
+  width: 100%;
 }

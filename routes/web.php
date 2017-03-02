@@ -49,3 +49,8 @@ Route::get('admin/taxon/import', 'TaxonController@import');
 
 //cart
 Route::get('cart','CartController@show');
+
+//Order
+Route::post('order/add', [
+		'as'=>'orderAdd',
+		'uses'=>'OrderController@orderAdd']);
