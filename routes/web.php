@@ -49,8 +49,19 @@ Route::get('admin/taxon/import', 'TaxonController@import');
 
 //cart
 Route::get('cart','CartController@show');
-
+Route::post('cart/add', [
+		'as'=>'cartAdd',
+		'uses'=>'CartController@cartAdd']);
+Route::delete('cart/itemDelete/{rowId}', [
+	'as' => 'cartItemDelete',
+	'uses' => 'CartController@itemDelete'
+	]);
 //Order
 Route::post('order/add', [
 		'as'=>'orderAdd',
 		'uses'=>'OrderController@orderAdd']);
+
+Route::post('order/addCart', [
+		'as'=>'orderAddCart',
+		'uses'=>'OrderController@orderAddCart']);
+Route::get('admin/orders', 'OrderController@index');

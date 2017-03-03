@@ -14,18 +14,24 @@
 	        <h4 class="modal-title" 
 	        id="orderClickModalLabel">ЗАКАЗ В 1 КЛИК</h4>
 	      </div>
+	      
+	      <div class="modal-body">
+	      		<div class="form-errors"></div>
+	      		<div class="product-info">
+	      			<p><h4>Ваш заказ:</h4> </p>
+	      			<p>{{ $product->title }}</p>
+	      		</div>
 				{!! Form::open(array('method'=>'POST', 'id'=>'myform')) !!}
-				<div class="modal-body">
 						<label for='phone'><h4>НОМЕР ТЕЛЕФОНА</h4></label>
 						{!! Form::text('phone', null,array('class' => 'form-control phone-input','placeholder'=>'(000)-000-00-00', 'data-mask="(000)-000-00-00"')) !!} 
 						<label for='body'><h4>КОММЕНТАРИЙ</h4></label>
 						{!! Form::textarea('body', null,array('class' => 'form-control')) !!}
-				</div>
 				<div class="modal-footer">
 					<p>{!! Form::button('ЗАКАЗАТЬ', array('class'=>'send-btn btn btn-primary btn-lg')) !!}</p>
 					
 				</div>
 				{!! Form::close() !!}
+			</div>
 	    </div>
 	  </div>
 	</div>
@@ -52,10 +58,33 @@
 			<div class="price">
 				{{ $product->price }} ГРН.
 			</div>
-			<div class="buttons-form">
-				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#orderClickModal">
-					ЗАКАЗАТЬ В 1 КЛИК
-				</button>				
+			<div class="buttons-form row">
+				<p>
+					<div class="cart-form col-sm-4">
+						<form method="POST" action="{{url('cart/add')}}">
+
+
+		  					<div class="input-group spinner">
+		    					<input name="product_qty" type="text" class="form-control" value="1">
+		    					<div class="input-group-btn-vertical">
+		      						<button class="btn btn-default" type="button"><i class="fa fa-caret-up">+</i></button>
+		      						<button class="btn btn-default" type="button"><i class="fa fa-caret-down">-</i></button>
+		    					</div>
+		  					</div>
+
+							<input type="hidden" name="product_id" value="{{$product->id}}">
+							{{ csrf_field() }}
+							<button type="submit" class="btn btn-primary btn-add add-to-cart">В КОРЗИНУ</button>
+						</form>
+					</div>				
+				</p>
+				<p>
+					<div class="form-click col-sm-2">
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#orderClickModal">
+						ЗАКАЗАТЬ В 1 КЛИК
+						</button>	
+					</div>
+				</p>
 			</div>
 			<div class="info">
 				 <div class="panel-group" id="accordion">

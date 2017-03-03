@@ -5,12 +5,23 @@ $(document).ready(function(){
 $('.send-btn').click(function(){            
     $.ajax({
       url: '/order/add',
-      type: "post",
+      method: "post",
       data: {'phone':$('input[name=phone]').val(), '_token': $('input[name=_token]').val()},
       success: function(data){
+      	$('.form-errors').hide();
+        $(".modal-body").html(data);
 
-        $(".modal-body").text(data);
+      },
+      error: function(data){
+
+        var errors = '';
+                for(datos in data.responseJSON){
+                    errors += data.responseJSON[datos] + '<br>';
+                }
+                $('.form-errors').show().html(errors); //this is my div with messages
+
       }
+
     });      
   });
 
@@ -18,5 +29,13 @@ $('.send-btn').click(function(){
 $.ajaxSetup({
    headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
 });
+
+
+$('.spinner .btn:first-of-type').on('click', function() {
+    $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+  });
+$('.spinner .btn:last-of-type').on('click', function() {
+    $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+  });
 
 });

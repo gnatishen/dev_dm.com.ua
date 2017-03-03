@@ -11,6 +11,14 @@ use File;
 class ProductController extends Controller
 {
     
+    public function showImage($id) {
+        $product = Product::select('images')->where('id',$id)->first();
+
+        $img = explode(" ",$product->images);
+        
+        return $img[0];
+    }
+
 	public function show($id) {
 
        $product = Product::all()->where('id',$id)->first();

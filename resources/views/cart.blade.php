@@ -1,47 +1,93 @@
-// Display the content in a View.
-<table>
-    <thead>
-        <tr>
-            <th>Product</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>Subtotal</th>
-        </tr>
-    </thead>
+@extends('layouts.app')
 
-    <tbody>
+@section('slider')
 
-        <?php foreach(Cart::content() as $row) :?>
+@endsection
+@section('content')
+    <div class="cart-wrapper">
+        <div class="title"><H2>КОРЗИНА</H2></div>
+        <div class="cart-content">
 
-            <tr>
-                <td>
-                    <p><strong><?php echo $row->name; ?></strong></p>
-                    <p><?php echo ($row->options->has('size') ? $row->options->size : ''); ?></p>
-                </td>
-                <td><input type="text" value="<?php echo $row->qty; ?>"></td>
-                <td>$<?php echo $row->price; ?></td>
-                <td>$<?php echo $row->total; ?></td>
-            </tr>
+                @foreach ( Cart::content() as $row )
+                    <div class="row product-items vertical-align">
+                        <div class="col-sm-1 item-delete item">
+                            <form action="{{ route('cartItemDelete', ['cartItem' => $row->rowId]) }}" method="post">
+                                {{ method_field('DELETE')}}
+                                <button type="submit" class="btn btn-danger"> X </button>
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
+                        <div class="col-sm-1 item">
+                            @inject('image', 'App\Http\Controllers\ProductController')
+                            <img src="/images/products/carousel-small/{!! $image->showImage($row->id) !!}" />
+                        </div>
+                        <div class="col-sm-3 item-name item">
+                            {{ $row->name }}
+                        </div>
+                        <div class="col-sm-1 item-qty item">
+                            {{ $row->qty }}
+                        </div>
+                        <div class="col-sm-1 item-price item">
+                            {{ $row->price }} ГРН.
+                        </div>
+                        <div class="col-sm-1 item-total item">
+                            CУММА: {{ $row->total }} ГРН.
+                        </div>
+                    </div>
+                @endforeach
 
-        <?php endforeach;?>
 
-    </tbody>
+            
+        </div>
+        <div class="row row-price-total">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4 cart-price-total">
+                <h3>К оплате: <?php echo Cart::total(); ?> ГРН.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 client-adress">
+                <h4>Данные Клиента</h4>
+                {!! Form::open(array('route' => 'orderAddCart')) !!}
+                    <div class="col-md-12">
+                        <p>
+                            <label for="fio">Фамилия, имя, отчество</label>
+                            {!! Form::text('fio', null,array('class' => 'form-control','placeholder'=>'Фамилия, имя, отчество','required' => 'required')) !!}
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>
+                            <label for="fio">Номер мобильного телефона</label>
+                            {!! Form::text('phone', null,array('class' => 'form-control','placeholder'=>'Номер мобильного телефона','required' => 'required')) !!}
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>
+                            <label for="fio">Город</label>
+                            {!! Form::text('city', null,array('class' => 'form-control','placeholder'=>'Город')) !!}
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>
+                            <label for="fio">Почтовое отделение</label>
+                            {!! Form::text('pochta', null,array('class' => 'form-control','placeholder'=>'Почтовое отделение (НОВА ПОЧТА или другие)')) !!}
+                        </p>
+                    </div>                                        
+                    <div class="col-md-12">
+                        <p>
+                            <label for="fio">Поле для дополнительных данных</label>
+                            {!! Form::textarea('body', null,array('class' => 'form-control','placeholder'=>'Поле для дополнительных данных')) !!}
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <p><button type="submit" class="btn btn-add">ОФОРМИТЬ ЗАКАЗ</button></p>                   
+                    </div>
+            {!! Form::close() !!}
 
-    <tfoot>
-        <tr>
-            <td colspan="2">&nbsp;</td>
-            <td>Subtotal</td>
-            <td><?php echo Cart::subtotal(); ?></td>
-        </tr>
-        <tr>
-            <td colspan="2">&nbsp;</td>
-            <td>Tax</td>
-            <td><?php echo Cart::tax(); ?></td>
-        </tr>
-        <tr>
-            <td colspan="2">&nbsp;</td>
-            <td>Total</td>
-            <td><?php echo Cart::total(); ?></td>
-        </tr>
-    </tfoot>
-</table>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('footer')
+    {!! view('footer') !!}
+@endsection

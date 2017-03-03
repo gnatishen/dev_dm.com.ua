@@ -4,14 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cart;
+use \App\Product;
 
 class CartController extends Controller
 {
     public function show() {
 
-    	Cart::add('1','Bots', 1, 9.99);
-		#Cart::add('1239ad0', 'Product 2', 2, 5.95, ['size' => 'large']);
-    	dump(Cart::content());die;
     	return view('cart');
+    }
+    public function cartAdd(Request $request) {
+
+    	//Cart::destroy();
+    	$product = Product::where('id', $request->product_id)->first();
+
+    	$cartItem = Cart::add($request->product_id,$product->title, $request->product_qty,$product->price);
+
+    	return redirect('/cart');
+    }
+
+    public function itemDelete(Request $request) {
+
+
+    	Cart::remove($request->rowId);
+
+    	return redirect('/cart');
     }
 }

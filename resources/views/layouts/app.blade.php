@@ -34,13 +34,13 @@
 <body>
     <header id="navbar" role="banner">
         <div class="top-links row">
-            <div class="block col-sm-8"></div>
-            <div class="block col-sm-4 region-top-links">    
+            <div class="block col-sm-6"></div>
+            <div class="block col-sm-6 region-top-links">    
                     <h4>Тел:</h4> <h3>(093) 359 44 14</h3><h4> 11:00-24:00 пн-пт Отправка заказов в пн, ср, пт в 17:0</h4>
             </div>
         </div>
         <div id="top-line" class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-11">
                     <nav class="navbar" role="navigation">
                        <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -57,13 +57,17 @@
                     </div>
                 </nav>
             </div>           
-            <div class="col-sm-2">
-                    <section id="block-user-login" class="block block-user clearfix">
-                        <div><a href="/register">Вход</a></div>
-                    </section>
-                    <section id="block-commerce-popup-cart-commerce-popup-cart" class="block block-commerce-popup-cart clearfix">
-                        <a href="">cart</a>
-                    </section>
+            <div class="col-sm-1">
+                    @if ( Cart::count() > 0 )
+                        <section id="cart-icon" class="block block-commerce-popup-cart clearfix">
+                            <a href="/cart">
+                                <div class="cart-count">{{ Cart::count() }}</div>
+                                <img src="/images/iconCart.png" /><br>
+                                <span>Корзина</span>
+
+                            </a>
+                        </section>
+                    @endif
             </div>
         </div>
     </header>
