@@ -4,7 +4,7 @@
 body {
     color: #333333;
     font-family: sans-serif;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1.2;
 }
 .container-fluid {
@@ -39,12 +39,6 @@ a:hover {
 .btn-lg:hover,
 .btn-lg:focus {
   background-color: #ccc;
-}
-body {
-    color: #333333;
-    font-family: sans-serif;
-    font-size: 15px;
-    line-height: 1.2;
 }
 .main-menu {
    padding: 10px;
@@ -376,4 +370,8 @@ body {
   position: absolute;
   right: -5px;
   top: -7px;
+}
+.form-errors {
+  color: #e74c3c;
+  font-size: 10px;
 }

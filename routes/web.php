@@ -37,15 +37,15 @@ Route::delete('admin/product/delete/{product}', function( \App\Product $product 
 	$product->delete();
 	return redirect('products');
 })->name('productDelete');
-Route::get('admin/product/import', 'ProductController@import');
-Route::get('products', 'ProductController@index');
 
-Route::get('admin/product/img_resize','ProductController@imgResize');
-Route::get('product/{id}','ProductController@show');
+
+//Route::get('admin/product/import', 'ProductController@import');
+//Route::get('admin/product/img_resize','ProductController@imgResize');
+Route::get('ru/content/{url_latin}','ProductController@show');
 
 //taxons
 Route::get('admin/taxons', 'TaxonController@index');
-Route::get('admin/taxon/import', 'TaxonController@import');
+//Route::get('admin/taxon/import', 'TaxonController@import');
 
 //cart
 Route::get('cart','CartController@show');

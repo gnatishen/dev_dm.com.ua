@@ -11,7 +11,7 @@
 		<div class="row">
 			@foreach ($products as $product)
 				<?php $image = explode(' ', $product['images'])?>
-				<a href="/product/{{ $product['id'] }}">
+				<a href="/ru/content/{{ $product['url_latin'] }}">
 					<div class="col-sm-2 product-item">
 						<div class="image">
 							<img src="/images/products/catalog/{{ $image[0] }}">
