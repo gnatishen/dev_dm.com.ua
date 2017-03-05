@@ -58,7 +58,7 @@
                     <div class="col-md-12">
                         <p>
                             <label for="fio">Номер мобильного телефона</label>
-                            {!! Form::text('phone', null,array('class' => 'form-control','placeholder'=>'Номер мобильного телефона','required' => 'required')) !!}
+                            {!! Form::text('phone', null,array('class' => 'form-control phone-input','placeholder'=>'(000)-000-00-00', 'data-mask="(000)-000-00-00"','required' => 'required')) !!}
                         </p>
                     </div>
                     <div class="col-md-12">

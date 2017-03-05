@@ -39,18 +39,50 @@
 @section('content')
 	<div class="product-cart row">
 		<?php $images = explode(' ', $product->images); ?>
-		<div class="carousel col-sm-1">
-				@foreach ( $images as $key => $image )
-					@if ( $key > 0 )
-						<img src="/images/products/carousel-small/{{ $image }}" />
-					@endif
-				@endforeach
-		</div>
-		<div class="col-sm-6">	
-			<div class="large-image">
-				<img src="/images/products/cart/{{ $images[0] }}" />
+
+		<div id="myCarousel" class="carousel slide col-sm-7" data-ride="carousel">
+			<div class="row">
+				<div class="col-sm-3">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active">
+							<img src="/images/products/carousel-small/{{ $images[0] }}" >
+						</li>
+						@foreach ( $images as $key => $image )
+							@if ( $key > 0 )
+								<li data-target="#myCarousel" data-slide-to="{{ $key }}">
+									<img src="/images/products/carousel-small/{{ $image }}">
+								</li>
+							@endif
+						@endforeach
+					</ol>
+				</div>
+				<div class="col-sm-9">
+					<div class="carousel-inner" role="listbox">
+				        <div class="item active">
+			              <img class="first-slide" src="/images/products/cart/{{ $images[0] }}" alt="First Slide">
+			            </div>
+							@foreach ( $images as $key => $image )
+								@if ( $key > 0 )
+									<div class="item">
+										<img class="second-slide" src="/images/products/cart/{{ $image }}" alt="Second Slide">
+			              			</div>
+								@endif
+							@endforeach
+
+			      		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			          		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			          		<span class="sr-only">Previous</span>
+			      		</a>
+			      		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			          		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			          		<span class="sr-only">Next</span>
+			      		</a>
+	  				</div>
+				</div>
 			</div>
-		</div>
+      	
+	  	</div>
+
 		<div class="col-sm-5">
 			<div class="title">
 				<h2>{{ $product->title }}</h2>
