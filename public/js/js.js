@@ -6,7 +6,11 @@ $('.send-btn').click(function(){
     $.ajax({
       url: '/order/add',
       method: "post",
-      data: {'phone':$('input[name=phone]').val(), '_token': $('input[name=_token]').val()},
+      data: {'phone':$('input[name=phone]').val(), 
+             '_token': $('input[name=_token]').val(),
+             'product_id':$('input[name=product_id]').val(),
+             'body':$('textarea[name=body]').val()
+           },
       success: function(data){
       	$('.form-errors').hide();
         $(".modal-body").html(data);

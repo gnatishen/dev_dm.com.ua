@@ -43,7 +43,7 @@ class CategoryController extends Controller
     }
 
     public function show($id) {
-        $products = Product::all()->where('category_id',$id)->toArray();
+        $products = Product::all()->where('category_id',$id)->sortBy('stock')->toArray();
         $catalog = Category::all()->where('id',$id)->first();
 
         return view('catalog-page')

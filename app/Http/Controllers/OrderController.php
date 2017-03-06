@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Input;
 use Cart;
+use Mail;
 use App\Order;
+use App\Product;
 
 class OrderController extends Controller
 {
@@ -14,11 +16,18 @@ class OrderController extends Controller
     	$this->validate($request, [
 	    	'phone' => 'required|min:15',
         ]);
+        $product = Product::all()->where('id',$request->product_id)->first();
+        $message = '<p> Артикл: '.$product->id.'</p><p> Заказ: '.$product->title.'</p><p> Номер телефона: '.$request->phone.'</p><p> Комментарий: '.$request->body.'</p>';
 
-    	$message = "<p>Ваш заказ зарегистрирован, в ближайшее время с вами свяжется наш менеджер</p>
-    		<p>$request->phone</p>";
+        Mail::send('mail-message-short', ['mess' => $message], function($message)
+        {   
+            $message->from('manager@grandmoto.com.ua', 'GrandMoto');
+            $message->to('grandmoto@ukr.net')->subject('Новый заказ - 1 клик');
+        });
 
-    	return response()->json($message);
+    	$message_j = "<p>Ваш заказ зарегистрирован, в ближайшее время с вами свяжется наш менеджер</p>";
+
+    	return response()->json($message_j);
     }
 
     public function orderAddCart(Request $request) {
@@ -30,8 +39,9 @@ class OrderController extends Controller
     		$string = $string.$cartItem->id.'; '.$cartItem->name.'; '.$cartItem->qty.'; '.$cartItem->price.'; '.$cartItem->total.'|||';
     	}
     	$order = new Order;
+        $order_id = str_random(7);
     	$order->fill(array(
-    		'order_id' => str_random(7),
+    		'order_id' => $order_id,
     		'fio' => $request->fio,
     		'phone' => $request->phone,
     		'city' => $request->city,
@@ -42,18 +52,27 @@ class OrderController extends Controller
     		'status' => 'Оформлен'
     		));
 
-    	$order->save();
+    	if ( $order->save() ) {
+            Cart::destroy();
 
-    	Cart::destroy();
 
-    	return redirect("/");
+            Mail::send('mail-message', ['order' => $order], function($message)
+            {   
+                $message->from('manager@grandmoto.com.ua', 'GrandMoto');
+                $message->to('grandmoto@ukr.net')->subject('Новый заказ');
+            });
+
+            $message = '<h4>Спасибо за заказ. </h4><br><br> Номер вашего заказа - <h4>'.$order_id.'</h4><br>В ближайшее время с вами свяжется наш менеджер';
+        } 	
+
+    	return view('cart-confirm')
+                ->with('message', $message);
     }
 
     public function index() {
 
     	$orders = Order::all();
-
-
+        
     	return view('orders')
     		->with('orders', $orders);
     }
