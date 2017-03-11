@@ -9,7 +9,6 @@ use App\Product;
 
 class CategoryController extends Controller
 {
-
     private function buildTree(array $elements, $parentId = 0, $level = 0) {
         $branch = array();
         $level++;
@@ -45,10 +44,12 @@ class CategoryController extends Controller
     public function show($id) {
         $products = Product::all()->where('category_id',$id)->sortBy('stock')->toArray();
         $catalog = Category::all()->where('id',$id)->first();
+        $childs = Category::all()->where('parent_id', $id);
 
         return view('catalog-page')
             ->with('products', $products)
-            ->with('catalog_name',$catalog->title);
+            ->with('catalog_name',$catalog->title)
+            ->with('childs', $childs);
     }
 
     public function import() {

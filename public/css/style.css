@@ -451,3 +451,12 @@ a:hover {
 .catalog-items .out-stock:hover .out-message {
   display: block;
 }
+.catalog-page .child-block {
+  background-color: #e5e5e5;
+  border: 1px solid #e5e5e5;
+  width: 90%;
+  margin: 0 auto;
+}
+.catalog-page .child-block .nav-tabs li {
+    border: none;
+}
