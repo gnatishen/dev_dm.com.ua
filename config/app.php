@@ -184,6 +184,8 @@ return [
         'Intervention\Image\ImageServiceProvider',
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+
     ],
 
     /*
@@ -236,6 +238,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => 'Intervention\Image\Facades\Image',
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 
     ],
 

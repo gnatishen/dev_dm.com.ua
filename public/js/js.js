@@ -1,6 +1,32 @@
 $(document).ready(function(){
 
 
+$('.btn-delete-img').click(function(){
+
+    var id = $(this).parent().attr("id");
+    var image = $('#' + id + ' input[name=image]').val();
+
+    $.ajax({
+      url: '/admin/product/delete/image',
+      method: "get",
+      data: { 'product_id': id, 'image': image },
+      success: function(data){
+        alert(data);
+        window.location.reload(true);
+      },
+      error: function(data){
+
+        var errors = '';
+                for(datos in data.responseJSON){
+                    errors += data.responseJSON[datos] + '<br>';
+                }
+                $('.message').show().html(errors); //this is my div with messages
+
+      }
+
+    });      
+  });
+
 
 $('.send-btn').click(function(){            
     $.ajax({
@@ -28,6 +54,8 @@ $('.send-btn').click(function(){
 
     });      
   });
+
+
 
 
 $.ajaxSetup({

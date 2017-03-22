@@ -36,6 +36,7 @@
 	    </div>
 	  </div>
 	</div>
+	{!! Breadcrumbs::render('category', $category) !!}
 @endsection
 @section('content')
 	<div class="product-cart row">
@@ -46,10 +47,12 @@
 				<div class="col-sm-3">
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active">
+							<?php if ( $images[0] == '' ) $images[0] = 'nophoto.png' ?>
 							<img src="/images/products/carousel-small/{{ $images[0] }}" >
 						</li>
+
 						@foreach ( $images as $key => $image )
-							@if ( $key > 0 )
+							@if ( $key > 0 && $image != '')
 								<li data-target="#myCarousel" data-slide-to="{{ $key }}">
 									<img src="/images/products/carousel-small/{{ $image }}">
 								</li>
@@ -60,12 +63,12 @@
 				<div class="col-sm-9">
 					<div class="carousel-inner" role="listbox">
 				        <div class="item active">
-			              <img class="first-slide" src="/images/products/cart/{{ $images[0] }}" alt="First Slide">
+			              <img class="first-slide" src="/images/products/cart/{{ $images[0] }}" ALT="{{ $product['title'] }}">
 			            </div>
 							@foreach ( $images as $key => $image )
 								@if ( $key > 0 )
 									<div class="item">
-										<img class="second-slide" src="/images/products/cart/{{ $image }}" alt="Second Slide">
+										<img class="second-slide" src="/images/products/cart/{{ $image }}" aALT="{{ $product['title'] }}">
 			              			</div>
 								@endif
 							@endforeach

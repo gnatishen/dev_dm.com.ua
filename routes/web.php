@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@index')->name('home');
 
 Route::get('resizeImage', 'ImageController@resizeImage');
 Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
@@ -27,16 +27,21 @@ Route::delete('admin/slide/delete/{slide}', function( \App\Slide $slide ) {
 
 Route::get('admin/categories', 'CategoryController@index');
 Route::get('admin/categories/import', 'CategoryController@import');
-Route::get('catalog/{id}','CategoryController@show');
+Route::get('catalog/{id}','CategoryController@show')->name('category');
 
 
 //products
-Route::get('admin/product/add', 'ProductController@add');
+Route::get('admin/product/create', 'ProductController@create');
 Route::post('admin/product/addPost',['as'=>'addPost','uses'=>'SliderController@addPost']);
+Route::post('admin/product/update',['as'=>'productUpdate','uses'=>'SliderController@update']);
 Route::delete('admin/product/delete/{product}', function( \App\Product $product ) {
 	$product->delete();
 	return redirect('products');
 })->name('productDelete');
+Route::get('admin/product/create/{product}', 'ProductController@edit');
+Route::get('admin/products','ProductController@index');
+Route::get('admin/products/manage-images','ProductController@manageImages');
+Route::get('admin/product/delete/image', 'ProductController@deleteImage')->name('deleteImage');
 
 
 //Route::get('admin/product/import', 'ProductController@import');
@@ -65,3 +70,32 @@ Route::post('order/addCart', [
 		'as'=>'orderAddCart',
 		'uses'=>'OrderController@orderAddCart']);
 Route::get('admin/orders', 'OrderController@index');
+
+
+Breadcrumbs::register('home', function($breadcrumbs) {
+    $breadcrumbs->push('Home', route('home'));
+});
+
+Breadcrumbs::register('category', function($breadcrumbs, $category) {
+    if ( $category->parent_id != 0 ) {
+    	$category_p = APP\Category::all()->where('id', $category->parent_id)->first();
+        $breadcrumbs->push($category_p->title, route('category', $category_p->id));
+    }
+    else
+        $breadcrumbs->parent('home');
+
+    $breadcrumbs->push($category->title, route('category', $category->id));
+});
+
+
+//static pages routes
+Route::get('page/{url_latin}', 'PagesController@show');
+
+Route::get('admin/pages', 'PagesController@index');
+Route::post('admin/page/create',['as'=>'pageCreate','uses'=>'PagesController@create']);
+Route::get('admin/page/update/{id}',['as'=>'pageUpdate','uses'=>'PagesController@update']);
+Route::post('admin/page/update',['as'=>'pageUpdatePost','uses'=>'PagesController@updatePost']);
+Route::delete('admin/page/delete/{page}', function( \App\Page $page ) {
+	$page->delete();
+	return redirect('admin/pages');
+})->name('pageDelete');

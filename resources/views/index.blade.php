@@ -6,7 +6,9 @@
 			<?php $i = 1; ?>
 			@foreach( $slides as $slide )
 				<div class="item @if ($i == 1) active @endif ">	
-					<img src="/images/uploads/slides/thumbnail/{{ $slide->image }}" alt="">
+					<a href="/{{$slide->url}}">
+						<img src="/images/uploads/slides/thumbnail/{{ $slide->image }}" alt="">
+					</a>
 				</div>
 				<?php $i++; ?>
 			@endforeach

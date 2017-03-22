@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('slider')
-
+	<div class="breadcrumbs">
+		{!! Breadcrumbs::render('category', $category) !!}
+	</div>
 @endsection
 @section('content')
-	<div class="breadcrumbs">
 
-	</div>
 	<div class="catalog-page">
 		<div class="catalog-name">
 			<h2>{{ $catalog_name }}</h2>
@@ -45,7 +45,8 @@
 						<a href="/ru/content/{{ $product['url_latin'] }}">
 							<div class="col-sm-2 product-item {{ $class }}">
 								<div class="image">
-									<img src="/images/products/catalog/{{ $image[0] }}">
+									<?php if ( $image[0] == '' ) $image[0] = 'nophoto.png' ?>
+									<img src="/images/products/catalog/{{ $image[0] }}" ALT="{{ $product['title'] }}" />
 								</div>
 								<div class="product-title"><h4>{{ $product['title'] }}</h4></div>
 								<div class="product-price"><h3>{{ $product['price'] }} ГРН.</h3></div>

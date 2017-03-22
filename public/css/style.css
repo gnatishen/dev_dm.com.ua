@@ -460,3 +460,46 @@ a:hover {
 .catalog-page .child-block .nav-tabs li {
     border: none;
 }
+
+
+.admin-products .panel-body {
+  border-bottom: 4px solid #f7f7f7;
+  background-color: #f7f7f7;
+}
+.admin-products table {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.admin-products a[aria-expanded="true"] table {
+  background-color: #f7f7f7;
+}
+.admin-products td,
+.admin-products tr {
+  border: none !important;
+}
+.admin-products .panel-heading {
+  padding: 0;
+}
+.admin-products-img .image {
+  height: 130px;
+  position: relative;
+  margin: 10px;
+  border: 1px solid #ccc;
+}
+.admin-products-img .image .btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 10px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+.content {
+  padding: 50px 0;
+}
+.static-page .body {
+  text-align: left;
+  line-height: 1.4;
+  margin-bottom: 200px;
+}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Product;
+use App\Category;
 use Image;
 use File;
 
@@ -19,14 +20,60 @@ class ProductController extends Controller
         return $img[0];
     }
 
+    public function deleteImage(Request $request) {
+
+        $product = Product::find($request->product_id);
+        $img_path = '/var/www/grandMotoLara/public/images';
+
+        $images = explode(" ",$product->images);
+
+        unset($images[array_search($request->image, $images)]);
+        $images = implode(" ",$images);
+
+        $message = "Успешно удален $request->image из продукта $product->title";
+
+        $product->fill(array(
+            'images' => $images
+            ))->save();
+
+        return response()->json($message);
+    }
+
 	public function show($url_latin) {
 
        $product = Product::all()->where('url_latin',$url_latin)->first();
+        $category = Category::all()->where('id', $product->category_id)->first();      
        
        return view('product-cart')
-       			->with('product',$product);
+       			->with('product',$product)
+                ->with('category', $category);
+
     }
 
+    public function manageImages() {
+
+        $products = Product::paginate(50);
+
+        return view('manage-images')->with(compact('products'));
+
+    }
+
+    public function index()
+    {
+        $products = Product::paginate(50);
+
+        return view('products')->with(compact('products'));
+    }
+    public function create()
+    {
+        return view('create-product');
+    }    
+
+    public function update($id)
+    {
+        $product = Product::find($id);
+        return view('edit-product')->with(compact('product'));
+    }
 
     //FUNCTION RESIZE ALL IMAGES FROM OLD SHOP
 
