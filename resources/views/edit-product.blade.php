@@ -8,7 +8,7 @@
                  {{ csrf_field() }}
             </form>
 		@endforeach
-{{ Form::model( $product, ['route' => ['productUpdate', $product->id], 'method' => 'put', 'role' => 'form'] ) }}
+{{ Form::model( $product, ['route' => ['productUpdate'], 'method' => 'post', 'role' => 'form'] ) }}
 
     @include('_fields-product')
 {{ Form::close() }}

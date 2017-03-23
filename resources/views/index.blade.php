@@ -19,7 +19,7 @@
 @endsection
 @section('content')
 	<div class="content_bottom row">
-		
+		{!! view('blocks.actions') !!}
 	</div>
 @endsection
 @section('footer')

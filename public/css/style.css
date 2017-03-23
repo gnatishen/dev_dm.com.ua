@@ -503,3 +503,16 @@ a:hover {
   line-height: 1.4;
   margin-bottom: 200px;
 }
+
+    .lightbox{
+
+      z-index: 1041;
+
+    }
+
+    .small-img{
+
+      width: 200px;
+      padding: 10px;
+
+    }

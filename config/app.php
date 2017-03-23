@@ -186,6 +186,9 @@ return [
 
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
+        //ckeditor
+        JeroenNoten\LaravelCkEditor\ServiceProvider::class,
+
     ],
 
     /*

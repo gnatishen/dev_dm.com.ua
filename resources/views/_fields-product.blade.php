@@ -12,7 +12,10 @@
 	<p>{!! Form::text('price', null,array('class' => 'form-control','placeholder'=>'Цена')) !!}</p>
 </div>
 <div class="col-md-12">
-	<p>{!! Form::textarea('body', null,array('class' => 'form-control','placeholder'=>'Текст')) !!}</p>
+	<p>{!! Form::textarea('body', null,array('class' => 'form-control','placeholder'=>'Текстu')) !!}
+	@ckeditor('body', ['height' => 300])
+	</p>
+
 </div>
 
 <div class="col-md-12">
