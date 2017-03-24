@@ -58,21 +58,162 @@ class ProductController extends Controller
 
     }
 
+
+    //admin pages
+    private function buildTree(array $elements, $parentId = 0, $level = 0) {
+        $branch = array();
+        $tree = array();
+        $level++;
+        foreach ($elements as $key => $element) {
+            
+
+
+            if ($element['parent_id'] == $parentId) {
+                $tree[$element['id']] = $element['title'];
+                $children = $this->buildTree($elements, $element['id'], $level );
+
+                $element['level'] = $level;
+                
+
+                $branch[] = $element;
+            }
+            else {
+                $tree[$key] = array(
+                'id' => $element['id'],
+                'title' => $element['title']
+                );
+            }
+        }
+
+        return $tree;
+    }
+
+    private function imgResize($image, $width, $height, $name ) {
+
+        ini_set('max_execution_time', 3600);
+        ini_set('memory_limit','500M');
+
+
+        $destinationPath = public_path('images/products/'.$name);
+        $realPath = public_path('images/products/original');
+
+        $img = Image::make($realPath.'/'.$image);
+        $img->resize($width, $height, function ($constraint) {
+                                     $constraint->aspectRatio();
+                                     })
+            ->save($destinationPath.'/'.$image);
+
+     return true;
+    }
+
     public function index()
     {
-        $products = Product::paginate(50);
+        $products = Product::orderBy('updated_at', 'desc')->paginate(50);
 
-        return view('products')->with(compact('products'));
+        return view('products.products')->with(compact('products'));
     }
+
     public function create()
     {
-        return view('create-product');
+        $rows = Category::all()->toArray();
+        $tree = $this->buildTree($rows);
+
+        return view('products.create-product')
+                ->with('categories', $tree);
     }    
+
+    public function createPost (Request $request) {
+        $product = new Product;
+        
+        $product->id = Product::orderBy('created_at', 'desc')->first()->id + 1;
+
+        $uploadcount = 1;
+        if ( $request->images ) {
+            foreach($request->images as $image) {
+            
+                $destinationPath = public_path('images/products/original');
+                $filename = $product->id.'-'.substr( md5(rand()), 0, 5);
+                $image->move($destinationPath, $filename);
+                $uploadcount ++;
+
+                $this->imgResize($filename, '120', '120', 'catalog' );
+                $this->imgResize($filename, '90', '90', 'carousel-small' );
+                $this->imgResize($filename, '500', '500', 'cart' );
+                $this->imgResize($filename, '800', '600', 'large' );
+                $product->images = $product->images." ".$filename;
+            }
+        }
+
+
+        //dump($product);die;
+        $product ->fill(array(
+                  'product_type_id' =>  '1',
+                  'category_id' => $request->category_id,
+                  'title' => $request->title,
+                  'body' => $request->body,
+                  'price' => $request->price,
+                  'url_latin' => $request->url_latin,
+                  'attributes' => '',
+                  'stock' => $request->stock,
+                  'images'=> trim($product->images)
+                  ));
+        $product->save();
+
+        Return redirect('/admin/products');
+
+    }
+
 
     public function update($id)
     {
         $product = Product::find($id);
-        return view('edit-product')->with(compact('product'));
+
+        $rows = Category::all()->toArray();
+        $tree = $this->buildTree($rows);
+
+        return view('products.edit-product')
+                ->with(compact('product'))
+                ->with('categories', $tree);
+    }
+
+    public function updatePost (Request $request) {
+
+        $product = Product::find($request->id);
+        $uploadcount = 1;
+        if ( $request->images ) {
+            foreach($request->images as $image) {
+            
+                $destinationPath = public_path('images/products/original');
+                $filename = $product->id.'-'.substr( md5(rand()), 0, 5);
+                $image->move($destinationPath, $filename);
+                $uploadcount ++;
+
+                $this->imgResize($filename, '120', '120', 'catalog' );
+                $this->imgResize($filename, '90', '90', 'carousel-small' );
+                $this->imgResize($filename, '500', '500', 'cart' );
+                $this->imgResize($filename, '800', '600', 'large' );
+                $product->images = $product->images." ".$filename;
+            }
+        }
+
+
+        //dump($product);die;
+        $product ->fill(array(
+                  'id' => $product->id,
+                  'product_type_id' =>  $product->product_type_id,
+                  'category_id' => $request->category_id,
+                  'title' => $request->title,
+                  'body' => $request->body,
+                  'price' => $request->price,
+                  'url_latin' => $request->url_latin,
+                  'attributes' => '',
+                  'stock' => $request->stock,
+                  'images'=> trim($product->images)
+                  ));
+        $product->save();
+
+        Return redirect('/admin/product/update/'.$request->id);
+
     }
 
     //FUNCTION RESIZE ALL IMAGES FROM OLD SHOP

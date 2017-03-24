@@ -242,6 +242,7 @@ return [
         'Image' => 'Intervention\Image\Facades\Image',
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Input'     => Illuminate\Support\Facades\Input::class,
 
     ],
 

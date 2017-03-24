@@ -1,15 +1,10 @@
 @extends('layouts.admin-app')
 
-@section('slider')
-	<div class="messages"></div>
-@endsection
 @section('content')
-	<div class="admin-products-img">
-		<div class="page-title"><h4>Все изображения продукции</h4></div>
-		<div class="row">
-			@foreach ( $products as $product )
-				<?php 
-					$images = explode(' ', $product->images); ?>
+	<h2>{{ $product->title }}</h2>
+	<div class="admin-edit-product">
+		<?php $images = explode(' ', $product->images); ?>
+		<div class="product-images row">
 				@foreach ($images as $image)
 					<div class="image col-sm-2">
 						<?php if ( $image == '' ) $image = 'nophoto.png' ?>
@@ -20,12 +15,23 @@
 	                		<button type="button" class="btn-delete-img btn btn-danger btn-{{$image}}"> X </button>
 	            		{!! Form::close() !!}
 					</div>
-				@endforeach
-			@endforeach	
+				@endforeach			
 		</div>
-		{{ $products->links('vendor.pagination.bootstrap-4') }}	
+
+
+		{{ Form::model( $product, ['route' => ['productUpdate'], 'method' => 'post', 'role' => 'form', 'files' => true ] ) }}
+			<input type="hidden" name="id" value="{{$product->id}}">
+		    @include('products._fields-product')
+
+		{{ Form::close() }}
 	</div>
+
 @endsection
+
 @section('footer')
+
 	{!! view('footer') !!}
+
 @endsection
+
+

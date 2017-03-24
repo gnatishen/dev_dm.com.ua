@@ -27,14 +27,18 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 
 	//admin products
 	Route::get('admin/product/create', 'ProductController@create');
-	Route::post('admin/product/add',['as'=>'productAdd','uses'=>'ProductController@create']);
-	Route::post('admin/product/update',['as'=>'productUpdate','uses'=>'ProductController@update']);
+	Route::post('admin/product/create',['as'=>'productCreate','uses'=>'ProductController@createPost']);
+
+	Route::get('admin/product/update/{id}', 'ProductController@update');
+	Route::post('admin/product/update',['as'=>'productUpdate','uses'=>'ProductController@updatePost']);
+
 	Route::delete('admin/product/delete/{product}', function( \App\Product $product ) {
 		$product->delete();
 		return redirect('products');
 	})->name('productDelete');
-	Route::get('admin/product/create/{product}', 'ProductController@edit');
+
 	Route::get('admin/products','ProductController@index');
+
 	Route::get('admin/products/manage-images','ProductController@manageImages');
 	Route::get('admin/product/delete/image', 'ProductController@deleteImage')->name('deleteImage');	
 
@@ -47,8 +51,10 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	//pages
 	Route::get('admin/pages', 'PagesController@index');
 	Route::post('admin/page/create',['as'=>'pageCreate','uses'=>'PagesController@create']);
+
 	Route::get('admin/page/update/{id}',['as'=>'pageUpdate','uses'=>'PagesController@update']);
 	Route::post('admin/page/update',['as'=>'pageUpdatePost','uses'=>'PagesController@updatePost']);
+
 	Route::delete('admin/page/delete/{page}', function( \App\Page $page ) {
 		$page->delete();
 		return redirect('admin/pages');
