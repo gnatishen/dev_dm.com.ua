@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Crawl-delay: 10
+# Directories
+Disallow: /admin/
+Disallow: /order/
+Disallow: /cart/
+

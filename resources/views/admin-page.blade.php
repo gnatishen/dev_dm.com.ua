@@ -1,8 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.admin-app')
 
-@section('slider')
-
-@endsection
 @section('content')
 	<div class="admin-content">
 		hello

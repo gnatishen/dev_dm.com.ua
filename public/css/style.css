@@ -7,6 +7,14 @@ body {
     font-size: 12px;
     line-height: 1.2;
 }
+.navbar-toggle .icon-bar {
+    background-color: black;
+    border-radius: 1px;
+    color: black;
+    display: block;
+    height: 2px;
+    width: 22px;
+}
 .container-fluid {
     font-family: "Roboto Condensed";
     text-align: center;
@@ -82,7 +90,7 @@ a:hover {
 .navbar-brand {
     float: none;
     font-family: "BebasNeueBold";
-    font-size: 3em !important;
+    font-size: 3em;
     font-weight: 500;
     line-height: 50px;
 }
@@ -443,7 +451,7 @@ a:hover {
   bottom: 0;
 }
 .catalog-items .out-stock {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .catalog-items .out-stock:hover {
   opacity: 1;
@@ -543,4 +551,18 @@ a:hover {
   padding: 5px;
   margin: 20px 0px;
   border: 1px solid #c3c3c3;
+}
+@media (max-width: 460px) {
+    body{font-size: 10px;}
+    h3{font-size: 13px;}
+    h4{font-size: 11px;}
+    .navbar-brand {font-size: 2em;}
+}
+
+@media (max-width: 720px) {
+    body{font-size: 14px;}
+    h3{font-size: 14px;}
+    h4{font-size: 11px;}
+    .navbar-brand {font-size: 2em;}
+ 
 }

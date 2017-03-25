@@ -13,6 +13,9 @@
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
+	Route::get('admin',function(){
+		return view('admin-page');
+	});
 	//admin slides
 	Route::get('admin/slide/add', 'SliderController@add');
 	Route::post('admin/slide/addPost',['as'=>'addPost','uses'=>'SliderController@addPost']);

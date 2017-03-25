@@ -71,7 +71,7 @@ class OrderController extends Controller
 
     public function index() {
 
-    	$orders = Order::all();
+    	$orders = Order::orderBy('updated_at', 'desc')->paginate(50);
         
     	return view('orders')
     		->with('orders', $orders);

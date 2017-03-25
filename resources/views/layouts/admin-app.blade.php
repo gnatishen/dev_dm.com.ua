@@ -51,9 +51,9 @@
                         </button>
                         <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
                     </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        @inject('menu', 'App\Http\Controllers\CategoryController')
-                        {!! $menu->index() !!}
+                    <div class="admin-menu">
+                            {!! view('admin.admin-menu') !!}
+                    </div>
                     </div>
                 </nav>
             </div>           
@@ -71,9 +71,7 @@
             </div>
         </div>
     </header>
-    <div class="top-slider">
-        @yield('slider')
-    </div>
+
     <div class="main-container container-fluid">
             @yield('content')
     </div>
