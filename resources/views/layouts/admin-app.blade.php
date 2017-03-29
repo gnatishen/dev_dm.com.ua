@@ -35,34 +35,8 @@
 <body>
     <header id="navbar" role="banner">
         <div id="top-line" class="row">
-            <div class="col-sm-11">
-                    <nav class="navbar" role="navigation">
-                       <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
-                    </div>
-                    <div class="admin-menu">
-                            {!! view('admin.admin-menu') !!}
-                    </div>
-                    </div>
-                </nav>
-            </div>           
-            <div class="col-sm-1">
-                    @if ( Cart::count() > 0 )
-                        <section id="cart-icon" class="block block-commerce-popup-cart clearfix">
-                            <a href="/cart">
-                                <div class="cart-count">{{ Cart::count() }}</div>
-                                <img src="/images/iconCart.png" /><br>
-                                <span>Корзина</span>
-
-                            </a>
-                        </section>
-                    @endif
+            <div class="admin-menu">
+                {!! view('admin.admin-menu') !!}
             </div>
         </div>
     </header>
