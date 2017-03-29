@@ -30,5 +30,6 @@
                 <div class="images">
                     <a href="https://vk.com/motoekipirovka_grandmoto">vk</a>
                 </div>
+                {!! view('blocks.count') !!}
             </section>
         </div>

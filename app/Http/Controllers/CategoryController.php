@@ -43,9 +43,29 @@ class CategoryController extends Controller
 
     public function show($id) {
         $products = Product::all()->where('category_id',$id)->sortBy('stock')->toArray();
-        $catalog = Category::all()->where('id',$id)->first();
+        if ( !$catalog = Category::all()->where('id',$id)->first() ) {
+            Return redirect('/');
+        }
         $childs = Category::all()->where('parent_id', $id);
         $category = Category::all()->where('id', $id)->first();
+
+        return view('catalog-page')
+            ->with('products', $products)
+            ->with('catalog_name',$catalog->title)
+            ->with('childs', $childs)
+            ->with('category',$category);
+    }
+
+    public function showByLatin($url_latin) {
+
+        if ( !$catalog = Category::all()->where('url_latin',$url_latin)->first() ) {
+            Return redirect('/');
+        }
+
+        $products = Product::all()->where('category_id',$catalog->id)->sortBy('stock')->toArray();
+
+        $childs = Category::all()->where('parent_id', $catalog->id);
+        $category = Category::all()->where('id', $catalog->id)->first();
 
         return view('catalog-page')
             ->with('products', $products)

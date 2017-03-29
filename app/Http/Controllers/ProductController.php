@@ -41,7 +41,10 @@ class ProductController extends Controller
 
 	public function show($url_latin) {
 
-       $product = Product::all()->where('url_latin',$url_latin)->first();
+       if ( !$product = Product::all()->where('url_latin',$url_latin)->first() ) {
+
+            return view('errors.404');
+       }
         $category = Category::all()->where('id', $product->category_id)->first();      
        
        return view('product-cart')
@@ -108,9 +111,12 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::orderBy('updated_at', 'desc')->paginate(50);
+        $products = Product::orderBy('id', 'desc')->where('product_type_id','1')->paginate(50);
+        $categories = Category::all();
 
-        return view('products.products')->with(compact('products'));
+        return view('products.products')
+                ->with(compact('products'))
+                ->with('categories', $categories);
     }
 
     public function create()
@@ -252,6 +258,146 @@ class ProductController extends Controller
 
 
     //   !!!!!FUNCTION IMPORT PRODUCTS FROM OLD SHOP!!!!
+
+    // public function import() {
+    //     $dbConnect = DB::connection('mysql2');
+    //     $base_nodes = $dbConnect->table('node')->where('type', 'product')->get();
+
+    //     $id = 11315;
+    //     $count = 1;
+    //     foreach ( $base_nodes as $base_node ) {
+    //         $error = false;
+
+    //         //get price
+    //         $base_uc_product = $dbConnect->table('uc_products')->where('nid', $base_node->nid)->first();
+            
+    //          //url latin
+    //         $productUrlLatin = $dbConnect->table('url_alias')
+    //                             ->where('source', 'node/'.$base_node->nid)
+    //                             ->get()
+    //                             ->first();
+    //         $urlLatin = explode('/',$productUrlLatin->alias);
+    //         $urlLatin = array_slice($urlLatin, -1)[0];
+
+    //         //catalog
+    //         if ( !$base_field_data_taxonomy_catalog  = $dbConnect->table('field_data_taxonomy_catalog')
+    //                                                         ->where('entity_id', $base_node->nid)
+    //                                                         ->first() )
+    //         {
+    //             $error = true;
+    //         }
+
+    //         //stock
+    //         if ( $base_field_data_field_nal = $dbConnect->table('field_data_field_nal')
+    //                                                         ->where('entity_id', $base_node->nid)
+    //                                                         ->first() ) 
+    //         {
+    //             if ( $base_field_data_field_nal->field_nal_value == 0 ) {
+    //                 $stock = 2;
+    //             }
+    //             else {
+    //                 $stock = 1;
+    //             }
+    //         }
+    //         else {
+    //             $stock = 3;
+    //         }
+
+
+    //         //body 
+    //         if ( $base_field_data_body = $dbConnect->table('field_data_body')
+    //                                                         ->where('entity_id', $base_node->nid)
+    //                                                         ->first() ) 
+    //         {
+    //             $body = $base_field_data_body->body_value;
+    //         }
+    //         else 
+    //         {
+    //             $body = 'У этого товара нет описания';
+    //         }
+
+ 
+
+
+    //         //dump($base_node);
+    //         //dump($urlLatin);
+    //         //dump($base_field_data_taxonomy_catalog->taxonomy_catalog_tid);
+    //         //dump($stock);
+    //         //dump($base_field_data_body->body_value);
+    //         //dump(trim($images_str));
+    //         //dump($base_uc_product);die;
+            
+
+    //         if ( $error == false ) 
+    //         {
+            
+    //             if ( !$product_new = Product::where('url_latin', $urlLatin)->first() ) {
+
+    //                //images
+    //                 $images_fids = $dbConnect->table('field_data_uc_product_image')
+    //                                                                 ->where('entity_id', $base_node->nid)
+    //                                                                 ->get()
+    //                                                                 ->toArray();
+
+    //                 $images_str = '';
+    //                 $destinationPath = public_path('images/products/original');
+
+    //                 foreach ($images_fids as $image_fid) {
+    //                     $filename = $dbConnect->table('file_managed')
+    //                                   ->where('fid', $image_fid->uc_product_image_fid )
+    //                                   ->get()
+    //                                   ->first()
+    //                                   ->filename;
+
+    //                     $filename_new = $id.'-'.substr( md5(rand()), 0, 5);
+    //                     if ( file_exists('/var/www/grandmoto.com.ua/web/sites/default/files/styles/1024/public/'.$filename) ) {
+    //                         copy('/var/www/grandmoto.com.ua/web/sites/default/files/styles/1024/public/'.$filename, $destinationPath.'/'.$filename_new);
+    //                     }
+
+
+    //                         // $this->imgResize($filename_new, '120', '120', 'catalog' );
+    //                         // $this->imgResize($filename_new, '90', '90', 'carousel-small' );
+    //                         // $this->imgResize($filename_new, '500', '500', 'cart' );
+    //                         // $this->imgResize($filename_new, '800', '600', 'large' );                          
+
+
+    //                     if ( file_exists( $destinationPath.'/'.$filename_new ) ) {
+    //                         $images_str = $images_str.' '.$filename_new; 
+    //                         $this->imgResize($filename_new, '120', '120', 'catalog' );
+    //                         $this->imgResize($filename_new, '90', '90', 'carousel-small' );
+    //                         $this->imgResize($filename_new, '500', '500', 'cart' );
+    //                         $this->imgResize($filename_new, '800', '600', 'large' );           
+    //                     }
+
+
+    //                 }   
+    //                 dump($images_str);
+
+    //                 $product = new Product;
+
+    //                 $product->fill(array(
+    //                     'id' => $id,
+    //                     'product_type_id' =>  '1',
+    //                     'price' => round($base_uc_product->sell_price, 0, PHP_ROUND_HALF_UP),
+    //                     'title' => $base_node->title,
+    //                     'attributes' => '',
+    //                     'url_latin' => $urlLatin,
+    //                     'category_id' => $base_field_data_taxonomy_catalog->taxonomy_catalog_tid,
+    //                     'stock' => $stock,
+    //                     'body' => $body,
+    //                     'images'=> trim($images_str)
+    //                 ));
+    //                 $product->save();
+    //                 $count++;
+    //                 $id++;
+    //             }
+
+    //         }
+
+    //     }
+
+    //     return $count;
+    // }
 
     // public function import() {
     // 	$dbConnect = DB::connection('mysql2');

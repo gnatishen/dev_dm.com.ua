@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-12">
                         <p>
-                            <label for="fio">Номер мобильного телефона</label>
+                            <label for="fio">Номер мобильного телефона (<b>Вводить без +38</b>)</label>
                             {!! Form::text('phone', null,array('class' => 'form-control phone-input','placeholder'=>'(000)-000-00-00', 'data-mask="(000)-000-00-00"','required' => 'required')) !!}
                         </p>
                     </div>

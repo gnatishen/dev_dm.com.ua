@@ -88,12 +88,24 @@
 	  	</div>
 
 		<div class="col-sm-5">
+			<div class="admin-links">
+				<?php
+				 	if ( $user = Auth::user() ) {
+			            if ( $user->role == 'admin')
+							{
+								echo '<a class="admin-link" href="/admin/product/update/'.$product['id'].'">Редактировать</a>';
+							}
+					}
+				?>
+			</div>
 			<div class="title">
 				<h2>{{ $product->title }}</h2>
 			</div>
 			<div class="article">
 				Артикул {{ $product->id }}
 			</div>
+
+
 			<div class="price">
 				{{ $product->price }} ГРН.
 			</div>
@@ -141,6 +153,10 @@
 				      </h4>
 				    </div>
 				    <div id="collapse1" class="panel-collapse collapse in">
+				    	@if ( $product->product_type_id == 2 )
+
+				    		<?php $product->body = 'Описание товара отсуствует'; ?>
+				    	@endif
 				      <div class="panel-body">{!! $product->body !!}</div>
 				    </div>
 				  </div>

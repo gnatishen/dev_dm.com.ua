@@ -37,13 +37,16 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 
 	Route::delete('admin/product/delete/{product}', function( \App\Product $product ) {
 		$product->delete();
-		return redirect('products');
+		return redirect('admin/products');
 	})->name('productDelete');
 
 	Route::get('admin/products','ProductController@index');
 
 	Route::get('admin/products/manage-images','ProductController@manageImages');
 	Route::get('admin/product/delete/image', 'ProductController@deleteImage')->name('deleteImage');	
+
+	//import products
+	//Route::get('admin/product/import', 'ProductController@import');
 
 	//taxons
 	Route::get('admin/taxons', 'TaxonController@index');
@@ -68,13 +71,17 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 
 
 Route::get('/', 'IndexController@index')->name('home');
+Route::get('/ru', 'IndexController@index');
 //Route::get('resizeImage', 'ImageController@resizeImage');
 //Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
 
 Route::get('catalog/{id}','CategoryController@show')->name('category');
+Route::get('ru/catalog/{url_latin}','CategoryController@showByLatin')->name('category_latin');
 
 //Route::get('admin/product/import', 'ProductController@import');
 //Route::get('admin/product/img_resize','ProductController@imgResize');
+
+
 Route::get('ru/content/{url_latin}','ProductController@show');
 
 //Route::get('admin/taxon/import', 'TaxonController@import');
@@ -124,3 +131,4 @@ Route::get('register', function(){
 	return redirect('/login');
 });
 Route::get('/home', 'HomeController@index');
+

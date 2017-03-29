@@ -50,6 +50,14 @@
 								</div>
 								<div class="product-title"><h4>{{ $product['title'] }}</h4></div>
 								<div class="product-price"><h3>{{ $product['price'] }} ГРН.</h3></div>
+								<?php
+								 	if ( $user = Auth::user() ) {
+							            if ( $user->role == 'admin')
+            								{
+                								echo '<a class="admin-link" href="/admin/product/update/'.$product['id'].'">Редактировать</a>';
+            								}
+        							}
+        						?>
 								{!! $block !!}
 							</div>
 						</a>

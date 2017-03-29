@@ -10,8 +10,8 @@
 						<?php if ( $image == '' ) $image = 'nophoto.png' ?>
 						<img src="/images/products/catalog/{{ $image }}">
 						{!! Form::open(array('method'=>'POST', 'id'=>$image)) !!}
-	                		<input type="hidden" name="product_id" value="{{$product->id}}">
-	                		<input type="hidden" name="image" value="{{$image}}">
+	                		<input class="product_id_h" type="hidden" name="product_id" value="{{$product->id}}">
+	                		<input class="image_h" type="hidden" name="image" value="{{$image}}">
 	                		<button type="button" class="btn-delete-img btn btn-danger btn-{{$image}}"> X </button>
 	            		{!! Form::close() !!}
 					</div>

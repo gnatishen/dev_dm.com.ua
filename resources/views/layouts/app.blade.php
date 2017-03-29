@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'GRANDMOTO.COM.UA') }}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -81,17 +81,17 @@
     </div>
     <footer class="footer container-fluid">
         @yield('footer')
+
     </footer>
 
-    <!-- Scripts -->
-    <script
-              src="https://code.jquery.com/jquery-3.1.1.js"
-              integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-              crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery-3.1.1.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/js.js') }}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
+    <!-- SmartMenus jQuery plugin -->
+    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+
 </body>
 </html>

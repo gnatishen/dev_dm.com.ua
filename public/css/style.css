@@ -123,67 +123,7 @@ a:hover {
     background: none;
 }
 
-.navbar {
-    border: 1px solid transparent;
-    margin-bottom: 0;
-    min-height: 50px;
-    position: relative;
-}
 
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  -webkit-border-radius: 0 6px 6px 6px;
-  -moz-border-radius: 0 6px 6px;
-  border-radius: 0 6px 6px 6px;
-}
-
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-
-.dropdown-submenu:hover>a:after {
-  border-left-color: #fff;
-}
-
-.dropdown-submenu.pull-left {
-  float: none;
-}
-
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  -webkit-border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px;
-  border-radius: 6px 0 6px 6px;
-}
-.dropdown-submenu.level-1>UL {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    min-width: 300px;
-    border-top: 2px solid #e74c3c;
-}
-.dropdown-submenu.level-1 > a {
-    font-family: "BebasNeueBold";
-    font-size: 20px;
-    font-weight: 300;
-    text-transform: uppercase;
-    transition: all 0.3s ease 0s;
-}
-.dropdown-submenu.level-2 > a {
-    font-family: "BebasNeueBold";
-    font-size: 20px;
-    font-weight: 300;
-    text-transform: uppercase;
-    transition: all 0.3s ease 0s;
-}
 .catalog-items {
   padding: 50px 0;
 }
@@ -481,10 +421,7 @@ a:hover {
 .admin-products a[aria-expanded="true"] table {
   background-color: #f7f7f7;
 }
-.admin-products td,
-.admin-products tr {
-  border: none !important;
-}
+
 .admin-products .panel-heading {
   padding: 0;
 }
@@ -552,17 +489,97 @@ a:hover {
   margin: 20px 0px;
   border: 1px solid #c3c3c3;
 }
-@media (max-width: 460px) {
+
+
+
+
+@media (min-width: 960px) {
+.navbar {
+    border: 1px solid transparent;
+    margin-bottom: 0;
+    min-height: 50px;
+    position: relative;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu:hover>a:after {
+  border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
+.dropdown-submenu.level-1>UL {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    min-width: 300px;
+    border-top: 2px solid #e74c3c;
+}
+.dropdown-submenu.level-1 > a {
+    font-family: "BebasNeueBold";
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+.dropdown-submenu.level-2 > a {
+    font-family: "BebasNeueBold";
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+
+
+}
+
+
+
+@media (max-width: 760px) {
     body{font-size: 10px;}
     h3{font-size: 13px;}
     h4{font-size: 11px;}
     .navbar-brand {font-size: 2em;}
-}
 
-@media (max-width: 720px) {
-    body{font-size: 14px;}
-    h3{font-size: 14px;}
-    h4{font-size: 11px;}
-    .navbar-brand {font-size: 2em;}
- 
+     .dropdown-submenu.level-1 > a {
+        font-family: "BebasNeueBold";
+        font-size: 20px;
+        font-weight: 300;
+        text-transform: uppercase;
+        transition: all 0.3s ease 0s;
+    }
+    .dropdown-submenu.level-2 > a {
+        font-family: "BebasNeueBold";
+        font-size: 20px;
+        font-weight: 300;
+        text-transform: uppercase;
+        transition: all 0.3s ease 0s;
+    }
+
 }

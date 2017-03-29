@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-
 $('.btn-delete-img').click(function(){
 
-    var id = $(this).parent().attr("id");
-    var image = $('#' + id + ' input[name=image]').val();
+    var id = $(this).siblings("input[name=product_id]").val();
+    var image = $(this).siblings("input[name=image]").val();
+
 
     $.ajax({
       url: '/admin/product/delete/image',
@@ -21,6 +21,7 @@ $('.btn-delete-img').click(function(){
                     errors += data.responseJSON[datos] + '<br>';
                 }
                 $('.message').show().html(errors); //this is my div with messages
+                alert (errors);
 
       }
 
