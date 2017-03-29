@@ -34,6 +34,16 @@
     </script>
 </head>
 <body>
+    <div class="admin-links">
+        <?php
+            if ( $user = Auth::user() ) {
+                if ( $user->role == 'admin')
+                {
+                    ?>{!! view('admin.admin-menu') !!}<?php
+                }
+            }
+        ?>
+    </div>
     <header id="navbar" role="banner">
         <div class="top-links row">
             <div class="block col-sm-6"></div>

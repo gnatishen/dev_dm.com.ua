@@ -34,12 +34,6 @@
 </head>
 <body>
     <header id="navbar" role="banner">
-        <div class="top-links row">
-            <div class="block col-sm-6"></div>
-            <div class="block col-sm-6 region-top-links">    
-                    <h4>Тел:</h4> <h3>(093) 359 44 14</h3><h4> 11:00-24:00 пн-пт Отправка заказов в пн, ср, пт в 17:0</h4>
-            </div>
-        </div>
         <div id="top-line" class="row">
             <div class="col-sm-11">
                     <nav class="navbar" role="navigation">
