@@ -45,6 +45,9 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	Route::get('admin/products/manage-images','ProductController@manageImages');
 	Route::get('admin/product/delete/image', 'ProductController@deleteImage')->name('deleteImage');	
 
+	//export to excel
+	Route::get('admin/products/exportToExcel','ProductController@exportToExcel');
+
 	//import products
 	//Route::get('admin/product/import', 'ProductController@import');
 

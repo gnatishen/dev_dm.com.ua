@@ -189,6 +189,9 @@ return [
         //ckeditor
         JeroenNoten\LaravelCkEditor\ServiceProvider::class,
 
+        //excel
+        'Maatwebsite\Excel\ExcelServiceProvider',
+
     ],
 
     /*
@@ -243,6 +246,7 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
     ],
 

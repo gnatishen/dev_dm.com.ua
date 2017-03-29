@@ -8,6 +8,7 @@ use App\Product;
 use App\Category;
 use Image;
 use File;
+use Excel;
 
 class ProductController extends Controller
 {
@@ -220,6 +221,48 @@ class ProductController extends Controller
 
         Return redirect('/admin/product/update/'.$request->id);
 
+    }
+
+
+    //export to excel
+    public function exportToExcel() {
+
+        $xls= Excel::create('price_GrandMoto', function( $excel ) {
+
+             // Set the title
+            $excel->setTitle('Прайс лист grandmoto.com.ua');
+
+            // Chain the setters
+            $excel->setCreator('grandmoto.com.ua')
+                ->setCompany('GrandMoto');
+
+            //sheet
+            $excel->sheet('Аксессуары', function($sheet) {
+
+                $products = Product::all()->where('product_type_id','1');
+
+                foreach ($products as $key => $product) {
+                        $sheet->row($key, array(
+                            $product->id,
+                            $product->title,
+                            $product->body,
+                            $product->price,
+                            $product->url_latin,
+                            $product->stock,
+                            $product->category_type_id
+                        ));
+                    }
+
+            });
+
+            // Call them separately
+            $excel->setDescription('A demonstration to change the file properties');
+
+        });
+
+        $xls->export('xls');
+
+        return "ok";
     }
 
     //FUNCTION RESIZE ALL IMAGES FROM OLD SHOP

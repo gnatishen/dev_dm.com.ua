@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/BebasNeueBold/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/BebasNeueLight/style.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/PTSans-Regular/style.css') }}" rel="stylesheet">

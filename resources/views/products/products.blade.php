@@ -5,8 +5,16 @@
 @section('content')
 	<div class="admin-products">
 		<h2>Страница обратки товара</h2>
-		<a href="/admin/product/create" class="btn btn-success">Добавить товар</a>
+		
 		<div class="row">
+			<div class="row products-admin-buttons">
+				<div class="col-sm-1">
+					<a href="/admin/product/create" class="btn">Добавить товар</a>
+				</div>
+				<div class="col-sm-1">
+					<a href="/admin/products/exportToExcel" class="btn">Экспорт в xls</a>
+				</div>
+			</div>
 			<div class="col-sm-10">
 				<table class="table table-striped table-condensed table-bordered">
 				@foreach ($products as $key => $product)
