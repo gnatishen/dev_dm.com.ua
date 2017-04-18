@@ -171,3 +171,5 @@ Route::get('register', function(){
 });
 Route::get('/home', 'HomeController@index');
 
+Route::post('searchPost',['as'=>'searchPost','uses'=>'SearchController@searchPost']);
+

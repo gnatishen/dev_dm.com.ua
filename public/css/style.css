@@ -7,6 +7,38 @@ body {
     font-size: 12px;
     line-height: 1.2;
 }
+.search-button {
+  text-align: center;
+  cursor: pointer;
+  margin-top: 9px;
+  float: left;
+  font-family: "BebasNeueBold";
+  font-size: 11px;
+  margin-left: 30px;
+}
+#search-form-contanier {
+  height: 60px;
+  display: none;
+}
+#search-form {
+  background-color: #fff;
+  padding: 15px;
+  height: 60px;
+  border-bottom: 1px solid #e74c3c;
+  width: 360px;
+  float: right;
+}
+#search-form .form p {
+  float: left;
+}
+#search-form .btn-add {
+  font-family: "BebasNeueBold";
+  color: #fff;
+}
+#search-form .form-control {
+  font-size: 11px;
+  width: 260px;
+}
 .navbar-toggle .icon-bar {
     background-color: black;
     border-radius: 1px;
@@ -311,6 +343,7 @@ a:hover {
   font-size: 11px;
   margin-top: 10px;
   position: relative;
+  float: left;
 }
 #cart-icon .cart-count {
   color: #fff;
@@ -499,7 +532,13 @@ a:hover {
   background-color: #ccc;
 }
 
+.navbar {
+  margin-bottom: 1px;
+}
 
+#search-form-container {
+  position: relative;
+}
 
 
 
@@ -590,5 +629,4 @@ a:hover {
         text-transform: uppercase;
         transition: all 0.3s ease 0s;
     }
-
 }

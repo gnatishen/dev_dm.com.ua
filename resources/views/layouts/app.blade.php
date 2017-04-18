@@ -52,7 +52,7 @@
             </div>
         </div>
         <div id="top-line" class="row">
-            <div class="col-sm-11">
+            <div class="col-sm-10">
                     <nav class="navbar" role="navigation">
                        <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -80,9 +80,26 @@
                             </a>
                         </section>
                     @endif
+                    <div class="search-button">
+                        <img src="/images/iconSearch.png" width="21px"/><br>
+                        <span>ПОИСК</span>
+                    </div>
             </div>
         </div>
     </header>
+    <div id="search-form-contanier">
+        <div id="search-form">
+                <div class="col-md-10"></div>
+                {!! Form::open(array('route' => 'searchPost')) !!}
+                    <div class="form">
+                        <p>
+                            {!! Form::text('search', null,array('class' => 'form-control','placeholder'=>'Введите текст или артикл','required' => 'required')) !!}
+                        </p>
+                        <p><button type="submit" class="btn btn-add">ИСКАТЬ</button></p>                   
+                    </div>
+                {!! Form::close() !!}
+        </div>
+    </div>
     <div class="top-slider">
         @yield('slider')
     </div>

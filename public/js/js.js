@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+
+$('.search-button').click(function(){
+  $('#search-form-contanier').slideToggle( "fast" );
+});
 $('.btn-delete-img').click(function(){
 
     var id = $(this).siblings("input[name=product_id]").val();
