@@ -48,6 +48,14 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	//export to excel
 	Route::get('admin/products/exportToExcel','ProductController@exportToExcel');
 
+	//import with excel
+	Route::get('admin/products/importWithExcel', function() 
+		{
+			return view('products.importWithExcelForm');
+		});
+	Route::post('admin/products/importWithExcelPost',['as'=>'importWithExcelPost','uses'=>'ProductController@importWithExcelPost']);
+
+
 	//import products
 	//Route::get('admin/product/import', 'ProductController@import');
 
@@ -74,19 +82,47 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 
 
 Route::get('/', 'IndexController@index')->name('home');
-Route::get('/ru', 'IndexController@index');
+Route::get('/ru', function () 
+	{
+
+		return redirect('/');
+	});
+Route::get('/uk', function () 
+	{
+
+		return redirect('/');
+	});
 //Route::get('resizeImage', 'ImageController@resizeImage');
 //Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
 
 Route::get('catalog/{id}','CategoryController@show')->name('category');
-Route::get('ru/catalog/{url_latin}','CategoryController@showByLatin')->name('category_latin');
+Route::get('catalog/{url_latin}','CategoryController@showByLatin')->name('category_latin');
+Route::get('ru/catalog/{url_latin}',function($url_latin)
+	{
+
+		return redirect('catalog/'.$url_latin);
+	});
+Route::get('uk/catalog/{url_latin}',function($url_latin)
+	{
+
+		return redirect('catalog/'.$url_latin);
+	});
 
 //Route::get('admin/product/import', 'ProductController@import');
 //Route::get('admin/product/img_resize','ProductController@imgResize');
 
 
-Route::get('ru/content/{url_latin}','ProductController@show');
+Route::get('content/{url_latin}','ProductController@show');
+Route::get('ru/content/{url_latin}',function($url_latin)
+	{
 
+		return redirect('content/'.$url_latin);
+	});
+Route::get('uk/content/{url_latin}',function($url_latin)
+	{
+
+		return redirect('content/'.$url_latin);
+	});
 //Route::get('admin/taxon/import', 'TaxonController@import');
 
 //cart

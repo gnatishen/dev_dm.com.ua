@@ -242,7 +242,7 @@ class ProductController extends Controller
                 $products = Product::all()->where('product_type_id','1');
 
                 foreach ($products as $key => $product) {
-                        $sheet->row($key, array(
+                        $sheet->appendRow(array(
                             $product->id,
                             $product->title,
                             $product->body,
@@ -263,6 +263,34 @@ class ProductController extends Controller
         $xls->export('xls');
 
         return "ok";
+    }
+
+
+    //import with Excel
+    public function importWithExcelPost ( Request $request )
+    {
+        Excel::load($request->file('xls'), function($reader) {
+
+            // Getting all results
+            //$products = $reader->get();
+
+            // ->all() is a wrapper for ->get() and will work the same
+            $rows = $reader->all()->toArray();
+
+            foreach ($rows as $row) {
+
+
+                $product = Product::find($row['sku']);
+                echo $product->title.' '.$product->price.' => '.$row['price'].'<br>';
+                $product->price = $row['price'];
+                $product->save();
+                //dump($product);
+            }
+
+        });
+
+        
+
     }
 
     //FUNCTION RESIZE ALL IMAGES FROM OLD SHOP

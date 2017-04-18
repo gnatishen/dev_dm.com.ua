@@ -2,6 +2,7 @@
 /public/storage
 /public/hot
 /public/images
+/public/robots.txt
 /storage/*.key
 /vendor
 /.idea

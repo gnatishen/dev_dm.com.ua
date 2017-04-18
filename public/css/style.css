@@ -489,10 +489,18 @@ a:hover {
   margin: 20px 0px;
   border: 1px solid #c3c3c3;
 }
+.admin-import {
+  padding: 40px;
+  text-align: left; 
+  border: 1px solid #ccc;
+}
 .admin-links {
   font-size: 10px;
   background-color: #ccc;
 }
+
+
+
 
 
 
