@@ -44,22 +44,7 @@
 
 		<div id="myCarousel" class="carousel slide col-sm-7" data-ride="carousel">
 			<div class="row">
-				<div class="col-sm-3">
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active">
-							<?php if ( $images[0] == '' ) $images[0] = 'nophoto.png' ?>
-							<img src="/images/products/carousel-small/{{ $images[0] }}" >
-						</li>
 
-						@foreach ( $images as $key => $image )
-							@if ( $key > 0 && $image != '')
-								<li data-target="#myCarousel" data-slide-to="{{ $key }}">
-									<img src="/images/products/carousel-small/{{ $image }}">
-								</li>
-							@endif
-						@endforeach
-					</ol>
-				</div>
 				<div class="col-sm-9">
 					<div class="carousel-inner" role="listbox">
 				        <div class="item active">
@@ -82,6 +67,22 @@
 			          		<span class="sr-only">Next</span>
 			      		</a>
 	  				</div>
+				</div>
+				<div class="col-sm-3">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active col-xs-4">
+							<?php if ( $images[0] == '' ) $images[0] = 'nophoto.png' ?>
+							<img src="/images/products/carousel-small/{{ $images[0] }}" >
+						</li>
+
+						@foreach ( $images as $key => $image )
+							@if ( $key > 0 && $image != '')
+								<li data-target="#myCarousel" data-slide-to="{{ $key }}" class="col-xs-4" >
+									<img src="/images/products/carousel-small/{{ $image }}">
+								</li>
+							@endif
+						@endforeach
+					</ol>
 				</div>
 			</div>
       	
