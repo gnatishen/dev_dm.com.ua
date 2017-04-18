@@ -1,5 +1,5 @@
         <div class="region region-footer row">
-            <section class="block col-sm-3">
+            <section class="block col-md-3 col-xs-6">
                 <h2 class="block-title">ИНФОРМАЦИЯ</h2>
                 <p>
                     <a href="mailto:grandmoto@ukr.net">grandmoto@ukr.net</a><br>
@@ -8,14 +8,14 @@
                     Отправка заказов в пн, ср, пт в 17:00
                 </p>
             </section>
-            <section class="block col-sm-3">
+            <section class="block col-md-3  col-xs-6">
                 <h2 class="block-title">ЦЕНТР ПОДДЕРЖКИ</h2>
                 <ul class="menu nav">
                     <li class="leaf"><a title="" href="/articles">Полезные статьи</a></li>
                     <li class="leaf"><a title="" href="/podarochnye-sertifikaty">Подарочные сертификаты</a></li>
                 </ul>
             </section>
-            <section class="block col-sm-3">
+            <section class="block col-md-3  col-xs-6">
                 <h2 class="block-title">АКЦИИ &amp; НОВОСТИ</h2>
                 <div class="menu-block-wrapper menu-block-1 menu-name-menu-secondmenu parent-mlid-0 menu-level-1">
                     <ul class="menu nav">
@@ -25,7 +25,7 @@
                     </ul>
                 </div>
             </section>
-            <section class="block col-sm-3">
+            <section class="block col-md-3  col-xs-6">
                 <h2 class="block-title">СОЦИАЛЬНЫЕ СЕТИ</h2>
                 <div class="images">
                     <a href="https://vk.com/motoekipirovka_grandmoto">vk</a>

@@ -16,7 +16,7 @@ class SearchController extends Controller
     		$products = Product::where('id',$request->search)->get();
     	}
     	else {
-    		$products = Product::where('title','like','%'.$request->search.'%')->get();
+    		$products = Product::where('title','like','%'.$request->search.'%')->get()->sortBy('stock');
     	}
 
 

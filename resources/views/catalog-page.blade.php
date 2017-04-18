@@ -14,10 +14,10 @@
 		@if ( count($childs) > 0 )
 			
 			<div class="child-block">
-				<ul class="nav  nav-justified">
+				<ul class="nav ">
 				@foreach ( $childs as $child )
 					<li>
-						<a href="/catalog/{{$child->id}}">
+						<a class="glyphicon" href="/catalog/{{$child->id}}">
 							{{ $child->title }}
 						</a>
 					</li>
@@ -42,8 +42,8 @@
 								$block = '<div class="out-message">ПОД ЗАКАЗ</div>';
 							?>
 						@endif
-						<a href="/ru/content/{{ $product['url_latin'] }}">
-							<div class="col-sm-2 product-item {{ $class }}">
+						<a href="/content/{{ $product['url_latin'] }}">
+							<div class="col-md-2 col-xs-6 product-item {{ $class }}">
 								<div class="image">
 									<?php if ( $image[0] == '' ) $image[0] = 'nophoto.png' ?>
 									<img src="/images/products/catalog/{{ $image[0] }}" ALT="{{ $product['title'] }}" />

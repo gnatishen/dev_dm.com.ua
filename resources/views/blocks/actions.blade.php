@@ -6,7 +6,7 @@
   <div class="block-content">
     @for ($i = 1; $i < 25; $i++)
 
-      <div class="col-sm-2">
+      <div class="col-md-2 col-xs-6">
         <a data-toggle="lightbox" href="#demoLightbox-{{ $i }}">
           <img src="/images/actions/{{ $i }}.jpg" class="small-img">
         </a>
