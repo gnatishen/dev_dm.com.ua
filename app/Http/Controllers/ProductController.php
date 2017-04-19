@@ -240,16 +240,47 @@ class ProductController extends Controller
             $excel->sheet('Аксессуары', function($sheet) {
 
                 $products = Product::all()->where('product_type_id','1');
+                
 
                 foreach ($products as $key => $product) {
+                        
+                        //get category name
+                        if ( $category = Category::where('id', $product->category_id )->first() ) {
+                            $categoryName = $category->title;
+                        } 
+                        else {
+                            $categoryName = '';
+                        }
+
+                        //get stock 
+                        if ( $product->stock > 1 ) {
+                            $stock = '-';
+                        }
+                        else {
+                            $stock = '+';
+                        }
+
+                        $imageString = '';
+                        $images = explode (' ',$product->images);
+                        foreach ($images as $key => $image) {
+                            if ( $key == 0 ) {
+                                $separate = '';
+                            }
+                            else {
+                                $separate = ', ';
+                            }
+                            $imageString = $imageString.$separate.url("/images/products/cart/".$image);
+                        }
+
+
                         $sheet->appendRow(array(
                             $product->id,
                             $product->title,
                             $product->body,
                             $product->price,
-                            $product->url_latin,
-                            $product->stock,
-                            $product->category_type_id
+                            $stock,
+                            $categoryName,
+                            $imageString
                         ));
                     }
 
