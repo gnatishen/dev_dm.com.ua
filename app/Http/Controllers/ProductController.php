@@ -269,7 +269,9 @@ class ProductController extends Controller
                             else {
                                 $separate = ', ';
                             }
-                            $imageString = $imageString.$separate.url("/images/products/cart/".$image);
+                            if ( strlen($image) > 5 ) {
+                                $imageString = $imageString.$separate.url("/images/products/cart/".$image);
+                            }
                         }
 
 
