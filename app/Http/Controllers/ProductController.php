@@ -261,7 +261,7 @@ class ProductController extends Controller
                         }
 
                         $imageString = '';
-                        $images = explode (' ',$product->images);
+                        $images = explode (' ',trim($product->images));
                         foreach ($images as $key => $image) {
                             if ( $key == 0 ) {
                                 $separate = '';
