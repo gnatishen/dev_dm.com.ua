@@ -53,7 +53,8 @@ class CategoryController extends Controller
             ->with('products', $products)
             ->with('catalog_name',$catalog->title)
             ->with('childs', $childs)
-            ->with('category',$category);
+            ->with('category',$category)
+            ->with('title', $category->title);
     }
 
     public function showByLatin($url_latin) {

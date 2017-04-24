@@ -47,10 +47,11 @@ class ProductController extends Controller
             return view('errors.404');
        }
         $category = Category::all()->where('id', $product->category_id)->first();      
-       
+        
        return view('product-cart')
        			->with('product',$product)
-                ->with('category', $category);
+                ->with('category', $category)
+                ->with('title', $product->title);
 
     }
 
