@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Category;
 use App\Product;
+use App\Seo;
 
 class CategoryController extends Controller
 {
@@ -49,11 +50,14 @@ class CategoryController extends Controller
         $childs = Category::all()->where('parent_id', $id);
         $category = Category::all()->where('id', $id)->first();
 
+        if ( !$seo = Seo::all()->where('tid', $category->id)->first() ) $seo = false;
+
         return view('catalog-page')
             ->with('products', $products)
             ->with('catalog_name',$catalog->title)
             ->with('childs', $childs)
             ->with('category',$category)
+            ->with('seo', $seo)
             ->with('title', $category->title);
     }
 

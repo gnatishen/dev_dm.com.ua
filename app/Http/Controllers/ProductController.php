@@ -151,8 +151,7 @@ class ProductController extends Controller
                 $product->images = $product->images." ".$filename;
             }
         }
-
-
+        
         //dump($product);die;
         $product ->fill(array(
                   'product_type_id' =>  '1',

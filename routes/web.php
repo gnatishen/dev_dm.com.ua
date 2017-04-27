@@ -77,6 +77,10 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 		return redirect('admin/pages');
 	})->name('pageDelete');
 
+	//seoCreate
+	Route::post('admin/seo/create',['as'=>'seoCreate','uses'=>'SeoController@create']);
+	Route::post('admin/seo/update',['as'=>'seoUpdate','uses'=>'SeoController@update']);
+
 });
 
 

@@ -540,6 +540,13 @@ a:hover {
 #search-form-container {
   position: relative;
 }
+.seotext {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.6;
+  border-top: 2px solid #e74c3c;
+  padding-top: 30px;
+}
 
 
 
