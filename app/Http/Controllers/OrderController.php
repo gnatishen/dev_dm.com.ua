@@ -17,7 +17,7 @@ class OrderController extends Controller
 	    	'phone' => 'required|min:15',
         ]);
         $product = Product::all()->where('id',$request->product_id)->first();
-        $message = '<p> Артикл: '.$product->id.'</p><p> Заказ: '.$product->title.'</p><p> Номер телефона: '.$request->phone.'</p><p> Комментарий: '.$request->body.'</p>';
+        $message = '<p> Артикл: '.$product->id.'</p><p> Заказ: '.$product->title.'</p><p> Номер телефона: '.$request->phone.' Комментарий: '.$request->body.'</p>';
 
         Mail::send('mail-message-short', ['mess' => $message], function($message)
         {   
