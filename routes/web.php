@@ -27,6 +27,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	//admin categories
 	Route::get('admin/categories', 'CategoryController@index');
 	Route::get('admin/categories/import', 'CategoryController@import');
+	Route::get('admin/categories/edit', 'CategoryController@edit');
 
 	//admin products
 	Route::get('admin/product/create', 'ProductController@create');

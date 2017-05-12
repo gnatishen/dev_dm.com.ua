@@ -52,13 +52,18 @@
     </div>
     <header id="navbar" role="banner">
         <div class="top-links row">
-            <div class="block col-sm-6"></div>
-            <div class="block col-sm-6 region-top-links">    
+            <div class="block col-md-11"></div>
+            <div class="block col-md-1 region-top-links"> 
+                <div id="phone-text">
                     <h4>Тел:</h4> <h3>(093) 359 44 14</h3><h4> СТАС</h4>
+                </div>   
             </div>
         </div>
         <div id="top-line" class="row">
-            <div class="col-sm-10">
+            <div class="col-md-10 col-xs-12">
+                    <div class="title-container">
+                        <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
+                    </div>
                     <nav class="navbar" role="navigation">
                        <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -66,8 +71,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button>
-                        <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
+                        </button> 
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         @inject('menu', 'App\Http\Controllers\CategoryController')
@@ -75,7 +79,7 @@
                     </div>
                 </nav>
             </div>           
-            <div class="col-sm-1">
+            <div class="col-md-2 col-xs-12">
                     @if ( Cart::count() > 0 )
                         <section id="cart-icon" class="block block-commerce-popup-cart clearfix">
                             <a href="/cart">

@@ -79,36 +79,17 @@ class CategoryController extends Controller
             ->with('category',$category);
     }
 
-    public function import() {
-    	$dbConnect = DB::connection('mysql2');
-    	$categories = $dbConnect->table('taxonomy_term_data')->where('vid','2')->get();
+    public function edit()
+    {
 
-    	foreach ($categories as $category ) {
-    		$categoryParent = $dbConnect->table('taxonomy_term_hierarchy')->where('tid', $category->tid)->get()->toArray();
-    		$categoryUrlLatin = $dbConnect->table('url_alias')->where('source', 'taxonomy/term/'.$category->tid)->get()->toArray();
+        $rows = Category::all()->toArray();
+        $tree = $this->buildTree($rows);
 
-    		$category->parent_id = $categoryParent['0']->parent;
-    		$category->id = $category->tid;
-    		$category->title = $category->name;
-    		
-    		$urlLatin = explode('/',$categoryUrlLatin['0']->alias);
-    		$category->url_latin = array_slice($urlLatin, -1)[0];
-    		//$category->parent = $categoryParent['0']['parent'];
 
-            $category_tmp = new Category;
-            $category_tmp->fill(array(
-                'id' => $category->id,
-                'title' => $category->title,
-                'parent_id' => $category->parent_id,
-                'weight' => $category->weight,
-                'url_latin' => $category->url_latin
-                ));
-
-            $category_tmp ->save();
-    		//dump($category);
-            //die;
-    	}
         
-    	return 'ok';
+        return view('categories.edit')
+            ->with('categories', $tree);
+
     }
+
 }

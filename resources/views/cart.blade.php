@@ -9,28 +9,28 @@
         <div class="cart-content">
 
                 @foreach ( Cart::content() as $row )
-                    <div class="row product-items vertical-align">
-                        <div class="col-sm-1 item-delete item">
+                    <div class="row product-items">
+                        <div class="col-xs-1 item-delete item text-item">
                             <form action="{{ route('cartItemDelete', ['cartItem' => $row->rowId]) }}" method="post">
                                 {{ method_field('DELETE')}}
                                 <button type="submit" class="btn btn-danger"> X </button>
                                 {{ csrf_field() }}
                             </form>
                         </div>
-                        <div class="col-sm-1 item">
+                        <div class="col-xs-1 item image-item">
                             @inject('image', 'App\Http\Controllers\ProductController')
                             <img src="/images/products/carousel-small/{!! $image->showImage($row->id) !!}" />
                         </div>
-                        <div class="col-sm-3 item-name item">
+                        <div class="col-xs-4 item-name item text-item">
                             {{ $row->name }}
                         </div>
-                        <div class="col-sm-1 item-qty item">
+                        <div class="col-xs-2 item-qty item text-item">
                             {{ $row->qty }}
                         </div>
-                        <div class="col-sm-1 item-price item">
+                        <div class="col-xs-2 item-price item text-item">
                             {{ $row->price }} ГРН.
                         </div>
-                        <div class="col-sm-1 item-total item">
+                        <div class="col-xs-2 item-total item text-item">
                             CУММА: {{ $row->total }} ГРН.
                         </div>
                     </div>
@@ -40,8 +40,8 @@
             
         </div>
         <div class="row row-price-total">
-            <div class="col-sm-8"></div>
-            <div class="col-sm-4 cart-price-total">
+            <div class="col-xs-7"></div>
+            <div class="col-xs-5 cart-price-total">
                 <h3>К оплате: <?php echo Cart::total(); ?> ГРН.</h3>
             </div>
         </div>

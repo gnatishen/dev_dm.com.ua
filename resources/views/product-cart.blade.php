@@ -112,8 +112,7 @@
 			</div>
 			<div class="buttons-form row">
 				@if ( $product->stock == 1 ) 
-					<p>
-						<div class="cart-form col-sm-5">
+						<div class="cart-form col-md-7 col-xs-12">
 							<form method="POST" action="{{url('cart/add')}}">
 
 
@@ -130,14 +129,11 @@
 								<button type="submit" class="btn btn-primary btn-add add-to-cart">В КОРЗИНУ</button>
 							</form>
 						</div>				
-					</p>
-					<p>
-						<div class="form-click col-sm-2">
+						<div class="form-click col-md-5 col-xs-12">
 							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#orderClickModal">
 							ЗАКАЗАТЬ В 1 КЛИК
 							</button>	
 						</div>
-					</p>
 				@else
 					<div class="form-click col-sm-12">
 						<p>Под заказ (От 14 дней). <h4>тел: (093) 359 44 14</h4></p>					

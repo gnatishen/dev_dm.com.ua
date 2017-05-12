@@ -7,6 +7,11 @@ body {
     font-size: 12px;
     line-height: 1.2;
 }
+.title-container {
+  float: left;
+  z-index: 99999;
+  position: relative;
+}
 .search-button {
   text-align: center;
   cursor: pointer;
@@ -87,6 +92,11 @@ a:hover {
     margin: 0;
 }
 
+.region-top-links {
+  width: 300px;
+  float: right;
+  text-align: right;
+}
 .region-top-links H4, .region-top-links H3 {
     float: left;
     padding: 0 5px;
@@ -290,9 +300,13 @@ a:hover {
   font-size: 11px;
 }
 .product-items {
-  
-  vertical-align: middle;
+  border-bottom: 1px solid #ccc;
 }
+.product-items .text-item {
+  line-height: 80px;
+  text-align: center;
+}
+
 .product-items div {
   padding: 10px 0;
   text-align: left;
@@ -491,7 +505,7 @@ a:hover {
 
     .small-img{
 
-      width: 200px;
+      width: 170px;
       padding: 10px;
 
     }
@@ -549,6 +563,11 @@ a:hover {
 }
 
 
+/* ADMIN PAGES*/
+.admin-page.categories-edit .content-container {
+  text-align: left;
+  line-height: 1.6;
+}
 
 
 @media (min-width: 960px) {
@@ -565,7 +584,7 @@ a:hover {
 
   .dropdown-submenu>.dropdown-menu {
     top: 0;
-    left: 100%;
+    left: 95%;
     margin-top: -6px;
     margin-left: -1px;
     -webkit-border-radius: 0 6px 6px 6px;
@@ -596,28 +615,64 @@ a:hover {
       position: absolute;
       top: 50px;
       left: 0;
-      min-width: 300px;
+      min-width: 170px;
       border-top: 2px solid #e74c3c;
   }
   .dropdown-submenu.level-1 > a {
       font-family: "BebasNeueBold";
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 300;
       text-transform: uppercase;
       transition: all 0.3s ease 0s;
   }
   .dropdown-submenu.level-2 > a {
       font-family: "BebasNeueBold";
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 300;
       text-transform: uppercase;
       transition: all 0.3s ease 0s;
   }
+   .dropdown-submenu li a {
+      font-family: "BebasNeueBold";
+      font-size: 14px;
+   }
 }
 
 
 
 @media (max-width: 760px) {
+
+    .title-container {
+      float: left;
+      z-index: 99999;
+      position: relative;
+    }
+    .title-container a {
+      z-index: 99999;
+    }
+
+
+      
+    .cart-content .item {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    .cart-content .text-item {
+      line-height: 15px;
+    }
+
+    .image-item img {
+      width: 0px;
+    }
+    .buttons-form .cart-form {
+      padding-bottom: 10px;
+    }
+    .product-cart .price {
+      text-align: center;
+    }
+    .product-cart .article {
+      text-align: center;
+    }
+
     body{font-size: 10px;}
     h3{font-size: 13px;}
     h4{font-size: 11px;}
