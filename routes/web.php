@@ -82,7 +82,33 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	Route::post('admin/seo/create',['as'=>'seoCreate','uses'=>'SeoController@create']);
 	Route::post('admin/seo/update',['as'=>'seoUpdate','uses'=>'SeoController@update']);
 
+	//export photos to folder
+	
+	Route::get('admin/products/exportallphotos','ProductController@exportAllPhotos');
+
+	//promo
+	Route::get('admin/promo/admin', 'PromoController@admin');
+	Route::get('admin/promo/create', 'PromoController@create');
+	Route::post('admin/promo/create',['as'=>'promoCreate','uses'=>'PromoController@createPost']);
+
+	Route::delete('admin/promo/delete/{promo}', function( \App\Promo $promo ) {
+		$promo->delete();
+		return redirect('admin/promo/admin');
+	})->name('promoDelete');
+
 });
+
+//redirect table delete cateries
+Route::get('/catalog/93',function()
+	{
+
+		return redirect('/catalog/89');
+	});
+Route::get('/catalog/94',function()
+	{
+
+		return redirect('/catalog/89');
+	});
 
 
 
@@ -177,4 +203,10 @@ Route::get('register', function(){
 Route::get('/home', 'HomeController@index');
 
 Route::post('searchPost',['as'=>'searchPost','uses'=>'SearchController@searchPost']);
+
+Route::get('/promo/{id}',['as'=>'promoCart','uses'=>'PromoController@show']);
+
+Route::post('/mailing/create',['as'=>'mailingAddPost','uses'=>'MailingController@addPost']);
+
+
 

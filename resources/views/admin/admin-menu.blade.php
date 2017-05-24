@@ -5,6 +5,7 @@
 	  		<li><a href="/admin/orders">Заказы</a></li>
 	  		<li><a href="/admin/pages">Страницы</a></li>
 	  		<li><a href="/admin/slides">Слайды</a></li>
+	  		<li><a href="/admin/promo/admin">Акции</a></li>
 		</ul>
 	</div>
 	<div class="col-sm-1">

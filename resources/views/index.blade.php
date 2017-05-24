@@ -18,9 +18,18 @@
 	</div> <!-- end slider -->
 @endsection
 @section('content')
-	<div class="content_bottom row">
-		{!! view('blocks.actions') !!}
+	<div class="content_bottom row front">
+		<div class="new-products catalog-items">
+        	@inject('newBlockProducts', 'App\Http\Controllers\ProductController')
+        	{!! $newBlockProducts->newBlockProducts() !!}
+    	</div>
+    	<div class="promo-block">
+			<!--@inject('promos', 'App\Http\Controllers\PromoController')
+    		{!! $promos->index() !!}-->
+    	</div>
+
 	</div>
+
 @endsection
 @section('footer')
 	{!! view('footer') !!}

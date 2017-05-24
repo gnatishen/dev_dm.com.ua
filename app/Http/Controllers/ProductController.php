@@ -326,6 +326,37 @@ class ProductController extends Controller
 
     }
 
+    public function exportAllPhotos()
+    {
+        $products = Product::orderBy('id', 'desc')->where('product_type_id','1')->get();
+
+        foreach ($products as $key => $product) {
+            
+            //dd($product->images);
+            // /var/www/devGrandMoto/public/images/products/export_img
+            // /var/www/devGrandMoto/public/images/products/original
+            $originalPath = '/var/www/devGrandMoto/public/images/products/original/';
+            $path = '/var/www/devGrandMoto/public/images/products/export_img/'.$product->id;
+            exec('mkdir '.$path);
+            $images = explode(" ", $product->images);
+
+            foreach ($images as $key => $image) 
+            {   
+                echo $product->title.'<br>';
+                exec('cp '.$originalPath.$image.' '.$path.'/'.$image );
+            }
+
+        }
+        return "ok";
+    }
+
+    public function newBlockProducts () 
+    {
+        $products = Product::orderBy('updated_at','desc')->where('stock','1')->where('product_type_id','1')->take(24)->get();
+
+        return view('blocks.newBlockProducts')->with('products', $products);
+    }
+
     //FUNCTION RESIZE ALL IMAGES FROM OLD SHOP
 
     // public function imgResize() {

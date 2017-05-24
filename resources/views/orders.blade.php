@@ -37,7 +37,9 @@
 								$items = explode('|||',$order->products);
 
 								foreach ($items as $item) {
-									$insideItems = explode('; ',$item);
+
+									if ( $insideItems = @explode('; ',$item) ) {
+
 							?>
 									<tr>
 										<td>{{ $insideItems[0]}}</td>
@@ -48,7 +50,7 @@
 									</tr>								
 
 									<?php	
-								}?>
+								}}?>
 								</table>
 						</td>
 						<td>

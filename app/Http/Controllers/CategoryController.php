@@ -61,6 +61,13 @@ class CategoryController extends Controller
             ->with('title', $category->title);
     }
 
+    public function showProductsChild($id) {
+        $products = Product::where('category_id',$id)->where('stock','1')->take(6)->get();
+
+        return view('categories.block-childProducts')
+                    ->with('products',$products);
+    }
+
     public function showByLatin($url_latin) {
 
         if ( !$catalog = Category::all()->where('url_latin',$url_latin)->first() ) {

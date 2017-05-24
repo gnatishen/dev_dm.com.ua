@@ -40,6 +40,7 @@
     </script>
 </head>
 <body>
+
     <div class="admin-links">
         <?php
             if ( $user = Auth::user() ) {
@@ -52,19 +53,21 @@
     </div>
     <header id="navbar" role="banner">
         <div class="top-links row">
-            <div class="block col-md-11"></div>
-            <div class="block col-md-1 region-top-links"> 
+            <div class="block col-md-6 col-xs-6">
+                <div class="title-container">
+                    <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
+                </div>
+            </div>
+            <div class="block col-md-6 col-xs-6 region-top-links"> 
                 <div id="phone-text">
-                    <h4>Тел:</h4> <h3>(093) 359 44 14</h3><h4> СТАС</h4>
+                    Тел: (093) 359 44 14<br>
+                    <div class="phone-2">(068) 207 80 10 </div>
                 </div>   
             </div>
         </div>
         <div id="top-line" class="row">
             <div class="col-md-10 col-xs-12">
-                    <div class="title-container">
-                        <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
-                    </div>
-                    <nav class="navbar" role="navigation">
+                <nav class="navbar" role="navigation">
                        <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
@@ -78,8 +81,10 @@
                         {!! $menu->index() !!}
                     </div>
                 </nav>
+
             </div>           
-            <div class="col-md-2 col-xs-12">
+            <div class="col-md-2 col-xs-12 top-icons">
+
                     @if ( Cart::count() > 0 )
                         <section id="cart-icon" class="block block-commerce-popup-cart clearfix">
                             <a href="/cart">
@@ -114,7 +119,86 @@
         @yield('slider')
     </div>
     <div class="main-container container-fluid">
-            @yield('content')
+        @if( count($errors) > 0 )
+
+            <!--error message -->
+            <div class="modal-error" id="orderClickModal" 
+                        tabindex="-1" role="dialog" 
+                        aria-labelledby="orderClickodalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" 
+                                    data-dismiss="modal" 
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" 
+                                id="orderClickModalLabel">Ошибка</h4>
+                            </div>
+              
+                        <div class="modal-body">
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger">
+                                    <strong>Ошибка!</strong> {{ $error }}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @if( Session('message') )
+            <!-- success message -->
+            <div class="modal-error" id="orderClickModal" 
+                        tabindex="-1" role="dialog" 
+                        aria-labelledby="orderClickodalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" 
+                                    data-dismiss="modal" 
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" 
+                                id="orderClickModalLabel">Сообщение</h4>
+                            </div>
+              
+                        <div class="modal-body">
+                                <div class="alert alert-success">
+                                    {!! Session('message') !!}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        @endif
+        @yield('content')
+
+    </div>
+    <div class="col-md-12 col-xs-12 email-line">
+        <div class="container-fluid">
+            {{ Form::open( array( 'route' => ['mailingAddPost'], 'method' => 'post', 'role' => 'form', 'files' => true ) ) }}
+                <div class="col-md-6 mailing-text">
+                    ПОДПИСАТЬСЯ НА РАССЫЛКУ АКЦИЙ И НОВИНОК
+                </div>
+                <div class="col-md-6 maling-form">
+                        <div class="form-line">
+                            {!! Form::text('email', null,array('class' => 'form-control','placeholder'=>'E-mail','required' => 'required')) !!}
+                        </div>
+                        <div class="form-line">
+                            <button type="submit" class="btn btn-mail">Подписаться</button>
+                        </div>
+                        
+                        
+                </div>
+
+            {{ Form::close() }}
+        </div>
     </div>
     <footer class="footer container-fluid">
         @yield('footer')
@@ -129,6 +213,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
     <!-- SmartMenus jQuery plugin -->
     <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.css" />
+    <script src="{{ asset('lightbox/dist/ekko-lightbox.js') }}"></script>
+
+    <script src="{{ asset('swipebox/src/js/jquery.swipebox.js') }}"></script> 
+    <link rel="stylesheet" href="{{ asset('swipebox/src/css/swipebox.css') }}">
 
 </body>
 </html>

@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+$('.modal-error .close').click(function(){
+    $('.modal-error').hide();
+});
 
 $('.search-button').click(function(){
   $('#search-form-contanier').slideToggle( "fast" );
@@ -75,4 +78,8 @@ $('.spinner .btn:last-of-type').on('click', function() {
     $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
   });
 
+});
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
 });

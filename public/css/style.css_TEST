@@ -3,33 +3,27 @@
  */
 body {
     color: #333333;
-    font-family: sans-serif;
+    font-family: "Ubuntu",sans-serif;
     font-size: 12px;
     line-height: 1.2;
     background-color: #f8f8f8;
 }
-.modal-error {
-    bottom: 0;
-    left: 0;
-    outline: 0 none;
-    overflow: hidden;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1050;
+.h4, h4 {
+    font-size: 14px;
+}
+.h3, h3 {
+    font-size: 16px;
 }
 .title-container {
   float: left;
   z-index: 99999;
   position: relative;
-  margin-top: 20px;
 }
 .search-button {
   text-align: center;
   cursor: pointer;
   margin-top: 9px;
   float: left;
-  font-family: "BebasNeueBold";
   font-size: 11px;
   margin-left: 30px;
 }
@@ -49,7 +43,6 @@ body {
   float: left;
 }
 #search-form .btn-add {
-  font-family: "BebasNeueBold";
   color: #fff;
 }
 #search-form .form-control {
@@ -77,7 +70,6 @@ body {
 }
 H1, H2, H3, H4 {
     text-align: left;
-    font-family: 'BebasNeueBold';
 }
 a {
      color: #232323;
@@ -88,6 +80,7 @@ a:hover {
 }
 .btn {
   border-radius: 0px;
+  font-size: 13px;
 }
 .btn-lg {
   background-color: #232323;
@@ -99,45 +92,11 @@ a:hover {
 }
 .main-menu {
    padding: 10px;
-
 }
 .row {
     margin: 0;
 }
 
-.email-line {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px 0px;
-  background-color: #1e1e1e;
-  text-align: center;
-}
-.email-line LABEL {
-  float: left;
-  color: #fff;
-}
-.email-line .mailing-text {
-    color: #fff;
-    font-family: "BebasNeueBold";
-    font-size: 22px; 
-    line-height: 34px;
-}
-.email-line .form-line {
-  float: left;
-  padding-right: 10px;
-}
-.email-line .btn-mail {
-  background-color: #e74c3c;
-  color: #fff;
-}
-.email-line .btn-mail:hover {
-  background-color: #ba1f0f;
-}
-.email-line .form-control {
-    background-color: #e5e5e5;
-    border: 1px solid #e5e5e5;
-    border-radius: 0;
-}
 .region-top-links {
   width: 300px;
   float: right;
@@ -152,16 +111,13 @@ a:hover {
     font-family: "Roboto Condensed";
     text-align: center;
 }
-#phone-text {
-  font-size: 18px;
-}
 .region-top-links H4 {
     line-height: 12px;
     margin-bottom: 0;
     margin-top: 5px;
 }
 .top-links {
-    background-color: #1e1e1e;
+    background-color: #000;
     text-align: right;
 }
 #navbar .block {
@@ -170,7 +126,6 @@ a:hover {
 }
 .region-top-links {
     color: #fff;
-    font-family: "BebasNeueBold";
     font-size: 22px;
     padding: 5px 20px;
     text-align: right;
@@ -180,23 +135,12 @@ a:hover {
 }
 .navbar-brand {
     float: none;
-    font-family: "BebasNeueBold";
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 500;
-    color: #e74c3c;
+    line-height: 35px;
+    color: #fff;
 }
-.navbar-toggle {
-    background-color: transparent;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    float: left;
-    margin-bottom: 8px;
-    margin-right: 15px;
-    margin-top: 8px;
-    padding: 9px 10px;
-    position: relative;
-}
+
 .logo {
     padding-top: 10px;
 }
@@ -209,8 +153,7 @@ a:hover {
     padding-top: 20px;
 }
 .footer h2 {
-    color: #333333;
-    font-family: "BebasNeueBold";
+    color: #000;
     font-size: 20px;
     font-weight: bold;
 }
@@ -227,12 +170,10 @@ a:hover {
 
 
 .catalog-items {
-  padding: 0 0 50px 0;
+  padding: 50px 0;
 }
 .catalog-items .product-item {
     text-align: center;
-    background-color: white;
-    border: 1px solid #f8f8f8;
     position: relative;
     padding: 10px;
 }
@@ -246,8 +187,7 @@ a:hover {
 }
 .catalog-items .product-item h4 {
   text-align: center;
-  font-size: 12px;
-  font-family: "Roboto Condensed";
+  font-size: 13px;
 }
 .catalog-items .product-item H3 {
   text-align: center;
@@ -272,16 +212,14 @@ a:hover {
   text-align: left;
 }
 .product-cart .title H2 {
-    color: #333333;
     display: block;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: normal;
     line-height: 28px;
-    padding: 0 0 20px 0;
+    padding: 0 100px 20px 0;
     text-transform: uppercase;
 }
 .product-cart .price {
-  font-family: "BebasNeueBold";
   font-size: 50px;
 }
 .product-cart .article {
@@ -293,7 +231,7 @@ a:hover {
 }
 .product-cart .info .panel-title {
   font-size: 22px;
-  color: #333333;
+  color: #000;
 }
 .product-cart .info .panel-collapse{
   line-height: 1.5;
@@ -313,6 +251,16 @@ a:hover {
   width: 100%;
 }
 
+.close-photo {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
 
 .spinner {
   width: 50px;
@@ -338,7 +286,6 @@ a:hover {
   margin-left: -1px;
   position: relative;
   border-radius: 0;
-  font-family: "BebasNeueBold";
 }
 .input-group-btn-vertical > .btn:first-child {
   border-top-right-radius: 4px;
@@ -373,7 +320,6 @@ a:hover {
 .product-items div {
   padding: 10px 0;
   text-align: left;
-  font-family: "BebasNeueBold";
 }
 .vertical-align {
     display: flex;
@@ -416,7 +362,6 @@ a:hover {
 }
 #cart-icon {
   text-align: center;
-  font-family: "BebasNeueBold";
   font-size: 11px;
   margin-top: 10px;
   position: relative;
@@ -424,7 +369,7 @@ a:hover {
 }
 #cart-icon .cart-count {
   color: #fff;
-  background-color: #333333;
+  background-color: #000;
   border-radius: 50%;
   padding-top: 2px;
   width: 15px;
@@ -443,8 +388,8 @@ a:hover {
   border: 1px solid #e5e5e5;
 }
 .product-cart .carousel-indicators li {
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #fff;
+    background-color: #f8f8f8;
+    border: 1px solid #f8f8f8;
     border-radius: 10px;
     cursor: pointer;
     display: inline-block;
@@ -469,7 +414,7 @@ a:hover {
     text-indent: 1px;
 }
 .product-cart .carousel-control {
-    color: #333333;
+    color: #000;
     font-size: 20px;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -624,29 +569,13 @@ a:hover {
   border-top: 2px solid #e74c3c;
   padding-top: 30px;
 }
-.catalog-items.catalog-child-items {
-  padding: 0;
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+    display: inline-block;
+    margin-top: -10px;
+    position: absolute;
+    top: 125px;
+    z-index: 5;
 }
-.catalog-child-items H4 {
-  font-family: "Roboto Condensed";
-  font-size: 16px;
-}
-.childs-li {
-  margin-left: 30px;
-}
-.childs-li .link {
-  text-align: center;
-  text-decoration: underline;
-  margin-bottom: 20px;
-}
-
-.front .block-title {
-  padding-top: 40px;
-  padding-bottom: 20px;
-  text-align: center;
-}
-
-
 
 /* ADMIN PAGES*/
 .admin-page.categories-edit .content-container {
@@ -666,20 +595,15 @@ a:hover {
   .dropdown-submenu {
     position: relative;
   }
-  .dropdown-submenu.level-2 {
-    display: inline-block;
-    width: 240px;
-  }
 
   .dropdown-submenu>.dropdown-menu {
-    position: relative;
     top: 0;
-    left: 30px;
-    margin-top: -1px;
+    left: 95%;
+    margin-top: -6px;
     margin-left: -1px;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
   }
 
   .dropdown-submenu:hover>.dropdown-menu {
@@ -705,40 +629,29 @@ a:hover {
       position: absolute;
       top: 50px;
       left: 0;
-      min-width: 500px;
+      min-width: 170px;
       border-top: 2px solid #e74c3c;
-      border-radius: 0;
   }
   .dropdown-submenu.level-1 > a {
-      font-family: "Roboto Condensed";
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       transition: all 0.3s ease 0s;
   }
   .dropdown-submenu.level-2 > a {
-      font-family: "Roboto Condensed";
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       transition: all 0.3s ease 0s;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #f5f5f5;
   }
    .dropdown-submenu li a {
-      font-family: "Roboto Condensed";
       font-size: 14px;
-      font-weight: 500;
    }
 }
 
 
 
 @media (max-width: 760px) {
-  .childs-li {
-    margin-left: 0px;
-  }
 
     .title-container {
       float: left;
@@ -749,11 +662,7 @@ a:hover {
       z-index: 99999;
     }
 
-    .region-top-links {
-      float: right;
-      text-align: right;
-      width: 170px;
-    }
+
       
     .cart-content .item {
       font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -781,21 +690,18 @@ a:hover {
     .navbar-brand {font-size: 2em;}
 
      .dropdown-submenu.level-1 > a {
-        font-family: "Roboto Condensed";
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 12px;
+        font-weight: 00;
         text-transform: uppercase;
         transition: all 0.3s ease 0s;
     }
     .dropdown-submenu.level-2 > a {
-        font-family: "Roboto Condensed";
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 20px;
+        font-weight: 300;
         text-transform: uppercase;
         transition: all 0.3s ease 0s;
     }
     .container-fluid {
-      font-family: "Roboto Condensed";
       padding: 0 3%;
       text-align: center;
     }
@@ -817,7 +723,7 @@ a:hover {
       display: inline-block;
     }
     .product-cart .title H2 {
-        color: #333333;
+        color: #000;
         display: block;
         font-size: 17px;
         font-weight: normal;
@@ -825,40 +731,5 @@ a:hover {
         padding: 0 0 20px 0;
         text-transform: uppercase;
         text-align: center;
-    }
-    .search-button {
-      margin-right: 30px;
-      float: right;
-    }
-    #cart-icon {
-      float: right;
-      margin-right: 10px;
-    }
-    .top-icons {
-      position: absolute;
-    }
-    .navbar-toggle {
-      position: absolute;
-      z-index: 9999;
-    }
-    #bs-example-navbar-collapse-1 {
-      margin-top: 50px;
-      text-align: center;
-      border-top: 2px solid #e74c3c;
-    }
-    .footer .block {
-      color: #666666;
-      font-size: 17px;
-      line-height: 27px;
-
-    }
-    .footer a {
-      text-decoration: underline;
-    }
-    .email-line .mailing-text {
-      font-size: 18px;
-    }
-    .email-line .maling-form .form-line {
-      padding: 5px;
     }
 }

@@ -16,13 +16,17 @@
 			<div class="child-block">
 				<ul class="nav ">
 				@foreach ( $childs as $child )
-					<li>
-						<a class="glyphicon" href="/catalog/{{$child->id}}">
-							{{ $child->title }}
-						</a>
+					<li class="childs-li">
+						<h3>
+								{{ $child->title }}
+						</h3>
+						@inject('childProducts', 'App\Http\Controllers\CategoryController')
+                        {!! $childProducts->showProductsChild($child->id) !!}
+                        <a class="link" href="/catalog/{{$child->id}}">ПЕРЕЙТИ В КАТЕГОРИЮ</a>
 					</li>
 
 				@endforeach
+
 				</ul>
 			</div>
 
