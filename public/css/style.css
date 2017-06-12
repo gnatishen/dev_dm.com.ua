@@ -289,7 +289,6 @@ a:hover {
   font-size: 50px;
 }
 .product-cart .article {
-  margin-top: -20px;
   margin-bottom: 30px;
 }
 .product-cart .info {
@@ -655,8 +654,18 @@ a:hover {
   text-align: center;
 }
 
-
-
+.text-front {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+.text-front H1 {
+  text-align: center;
+}
+.text-front p {
+  font-size: 16px;
+  line-height: 30px;
+}
 /* ADMIN PAGES*/
 .admin-page.categories-edit .content-container {
   text-align: left;

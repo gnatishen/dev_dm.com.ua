@@ -12,6 +12,7 @@
             <section class="block col-md-3  col-xs-12">
                 <h2 class="block-title">ЦЕНТР ПОДДЕРЖКИ</h2>
                 <ul class="menu nav">
+                    <li class="leaf"><a href="/page/oplata-dostavka">Оплата и доставка</a></li>
                     <li class="leaf"><a title="" href="/articles">Полезные статьи</a></li>
                     <li class="leaf"><a title="" href="/podarochnye-sertifikaty">Подарочные сертификаты</a></li>
                 </ul>

@@ -9,7 +9,7 @@
 
 	<div class="catalog-page">
 		<div class="catalog-name">
-			<h2>{{ $catalog_name }}</h2>
+			<h1>{{ $catalog_name }}</h1>
 		</div>
 		@if ( count($childs) > 0 )
 			
@@ -17,9 +17,9 @@
 				<ul class="nav ">
 				@foreach ( $childs as $child )
 					<li class="childs-li">
-						<h3>
+						<h2>
 								{{ $child->title }}
-						</h3>
+						</h2>
 						@inject('childProducts', 'App\Http\Controllers\CategoryController')
                         {!! $childProducts->showProductsChild($child->id) !!}
                         <a class="link" href="/catalog/{{$child->id}}">ПЕРЕЙТИ В КАТЕГОРИЮ</a>

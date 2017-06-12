@@ -105,7 +105,7 @@
 				?>
 			</div>
 			<div class="title">
-				<h2>{{ $product->title }}</h2>
+				<h1>{{ $product->title }}</h1>
 			</div>
 			<div class="article">
 				Артикул {{ $product->id }}

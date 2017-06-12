@@ -19,13 +19,23 @@
 @endsection
 @section('content')
 	<div class="content_bottom row front">
-		<div class="new-products catalog-items">
+		<div class="new-products catalog-items col-md-12 col-xs-12">
         	@inject('newBlockProducts', 'App\Http\Controllers\ProductController')
         	{!! $newBlockProducts->newBlockProducts() !!}
     	</div>
-    	<div class="promo-block">
-			<!--@inject('promos', 'App\Http\Controllers\PromoController')
-    		{!! $promos->index() !!}-->
+    	<!--<div class="promo-block">
+			@inject('promos', 'App\Http\Controllers\PromoController')
+    		{!! $promos->index() !!}
+    	</div>-->
+    	<div class="text-front col-md-12 col-xs-12">
+    		<h1>Вас приветствует магазин GrandMoto.com.ua</h1>
+    		<p>
+    			К выбору мотоцикла обычно относяться очень серьезно, неоднократно осматривая заинтересовавшую модель и оценивая ее характеристики и ходовые качества. Но следует знать, что не менее серьезно нужно подходить и к выбору мотоэкипировки, так как она способна не просто защитить мотоциклиста от непогоды, но и спасти ему жизнь при авариях.
+    		</p>
+    		<p>
+    			Магазин GrandMoto.com.ua предлагает вам качественные товары для мотоцикла и мотоциклиста.
+Приятных покупок Вам!!!
+    		</p>
     	</div>
 
 	</div>

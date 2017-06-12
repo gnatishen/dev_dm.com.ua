@@ -10,11 +10,17 @@
 
     <title>
         @if ( @$title )
-           {{ config('app.name') }} | {{ $title }}
+           {{ $title }}
         @else 
-            {{ config('app.name') }} | мотоэкипировка и аксессуары в наличии в Украине по лучшим ценам
+            GrandMoto - интернет магазин мотоэкипировки и аксессуаров для мотоциклов
         @endif
     </title>
+
+    @if ( !@$meta ) <?php $meta = 'В интернет магазине grandmoto.com.ua большой выбор мотоэкипировки и аксессуаров для мотоциклов. Низкие цены. Все в наличие. Более 1000 товаров. тел: 0933594414'; ?>
+    @endif
+
+
+    <meta name="description" content="{{ $meta }}"/>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
