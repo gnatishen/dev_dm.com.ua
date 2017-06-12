@@ -62,7 +62,7 @@ class CategoryController extends Controller
     }
 
     public function showProductsChild($id) {
-        $products = Product::where('category_id',$id)->where('stock','1')->take(6)->get();
+        $products = Product::orderBy('updated_at','Desc')->where('category_id',$id)->where('stock','1')->take(6)->get();
 
         return view('categories.block-childProducts')
                     ->with('products',$products);

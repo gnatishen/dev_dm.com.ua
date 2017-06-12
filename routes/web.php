@@ -110,6 +110,16 @@ Route::get('/catalog/94',function()
 		return redirect('/catalog/89');
 	});
 
+Route::get('/catalog/111',function()
+	{
+
+		return redirect('/catalog/130');
+	});
+Route::get('/catalog/107',function()
+	{
+
+		return redirect('/catalog/103');
+	});
 
 
 Route::get('/', 'IndexController@index')->name('home');

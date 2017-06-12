@@ -8,6 +8,10 @@ body {
     line-height: 1.2;
     background-color: #f8f8f8;
 }
+.panel-body {
+    overflow-wrap: break-word;
+    padding: 15px;
+}
 .modal-error {
     bottom: 0;
     left: 0;
@@ -20,7 +24,7 @@ body {
 }
 .title-container {
   float: left;
-  z-index: 99999;
+  z-index: 999;
   position: relative;
   margin-top: 20px;
 }
@@ -635,9 +639,14 @@ a:hover {
   margin-left: 30px;
 }
 .childs-li .link {
-  text-align: center;
-  text-decoration: underline;
-  margin-bottom: 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.childs-li .link:hover {
+    background-color: #d33828;
 }
 
 .front .block-title {
@@ -718,7 +727,7 @@ a:hover {
   }
   .dropdown-submenu.level-2 > a {
       font-family: "Roboto Condensed";
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       transition: all 0.3s ease 0s;
@@ -742,11 +751,11 @@ a:hover {
 
     .title-container {
       float: left;
-      z-index: 99999;
+      z-index: 999;
       position: relative;
     }
     .title-container a {
-      z-index: 99999;
+      z-index: 999;
     }
 
     .region-top-links {
@@ -789,7 +798,7 @@ a:hover {
     }
     .dropdown-submenu.level-2 > a {
         font-family: "Roboto Condensed";
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 500;
         text-transform: uppercase;
         transition: all 0.3s ease 0s;
@@ -839,7 +848,7 @@ a:hover {
     }
     .navbar-toggle {
       position: absolute;
-      z-index: 9999;
+      z-index: 999;
     }
     #bs-example-navbar-collapse-1 {
       margin-top: 50px;

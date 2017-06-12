@@ -213,13 +213,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
     <!-- SmartMenus jQuery plugin -->
     <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.css" />
     <script src="{{ asset('lightbox/dist/ekko-lightbox.js') }}"></script>
-
-    <script src="{{ asset('swipebox/src/js/jquery.swipebox.js') }}"></script> 
-    <link rel="stylesheet" href="{{ asset('swipebox/src/css/swipebox.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.css" />
 
 </body>
 </html>

@@ -48,13 +48,18 @@
 				<div class="col-sm-9">
 					<div class="carousel-inner" role="listbox">
 				        <div class="item active">
-			              <img class="first-slide" src="/images/products/cart/{{ $images[0] }}" ALT="{{ $product['title'] }}">
+                                             <a href="/images/products/original/{{ $images[0] }}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image">
+			              		<img class="first-slide" src="/images/products/cart/{{ $images[0] }}" ALT="{{ $product['title'] }}" data-type="image" class="img-fluid">
+                                             </a>
 			            </div>
 							@foreach ( $images as $key => $image )
 								@if ( $key > 0 )
 									<div class="item">
-										<img class="second-slide" src="/images/products/cart/{{ $image }}" aALT="{{ $product['title'] }}">
-			              			</div>
+                                             					<a href="/images/products/original/{{ $image }}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image">
+					                                                <img class="second-slide" src="/images/products/cart/{{ $image }}" ALT="{{ $product['title'] }}" data-type="image" class="img-fluid">
+                                             					</a>
+
+					              			</div>
 								@endif
 							@endforeach
 
