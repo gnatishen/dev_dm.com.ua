@@ -49,6 +49,8 @@ class CategoryController extends Controller
         }
         $childs = Category::all()->where('parent_id', $id);
         $category = Category::all()->where('id', $id)->first();
+        $categoryTitle = $category->title.' - купить по низким ценам | GrandMoto';
+        $metaText = 'Интернет магазин GrandMoto предлагает купить '.$category->title.' по низким ценам в Украине. Гарантия на весь ассортимент. Доставка 1-2 дня. Заходите!';
 
         if ( !$seo = Seo::all()->where('tid', $category->id)->first() ) $seo = false;
 
@@ -58,7 +60,8 @@ class CategoryController extends Controller
             ->with('childs', $childs)
             ->with('category',$category)
             ->with('seo', $seo)
-            ->with('title', $category->title);
+            ->with('title', $categoryTitle)
+            ->with('meta', $metaText);
     }
 
     public function showProductsChild($id) {

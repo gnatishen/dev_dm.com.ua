@@ -47,11 +47,14 @@ class ProductController extends Controller
             return view('errors.404');
        }
         $category = Category::all()->where('id', $product->category_id)->first();      
+        $productTitle = $product->title.' | GrandMoto';
+        $metaText = $product->title.': цена '.$product->price.' грн. Посмотрите на сайте описание и фотографии. Доставка 1-2 дня.';
         
        return view('product-cart')
        			->with('product',$product)
                 ->with('category', $category)
-                ->with('title', $product->title);
+                ->with('title', $productTitle)
+                ->with('meta',$metaText);
 
     }
 
