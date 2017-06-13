@@ -15,7 +15,7 @@
 	@endif
 	
 		<div class="col-md-2 col-xs-6 product-item {{ $class }}">
-			<a href="/content/{{ $product['url_latin'] }}">
+			<a href="/{{ $product['url_latin'] }}">
 			<div class="image">
 				<?php if ( $image[0] == '' ) $image[0] = 'nophoto.png' ?>
 				<img src="/images/products/catalog/{{ $image[0] }}" ALT="{{ $product['title'] }}" />

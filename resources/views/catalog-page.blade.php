@@ -1,9 +1,8 @@
+
 @extends('layouts.app')
 
 @section('slider')
-	<div class="breadcrumbs">
-		{!! Breadcrumbs::render('category', $category) !!}
-	</div>
+
 @endsection
 @section('content')
 
@@ -46,7 +45,7 @@
 								$block = '<div class="out-message">ПОД ЗАКАЗ</div>';
 							?>
 						@endif
-						<a href="/content/{{ $product['url_latin'] }}">
+						<a href="/{{ $product['url_latin'] }}">
 							<div class="col-md-2 col-xs-6 product-item {{ $class }}">
 								<div class="image">
 									<?php if ( $image[0] == '' ) $image[0] = 'nophoto.png' ?>

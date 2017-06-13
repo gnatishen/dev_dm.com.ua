@@ -32,6 +32,35 @@ class CategoryController extends Controller
         return $branch;
     }
 
+    private function buildUrlHierarchy($id, $urlString) {
+        $taxon = Category::where('id',$id)->first();
+        $urlString = $taxon->url_latin.'/'.$urlString;
+
+        if ( $taxon->parent_id > 0 ) {
+            
+           $urlString = $this->buildUrlHierarchy($taxon->parent_id, $urlString);
+
+        }
+
+            
+        return $urlString;
+    }   
+
+    public function buildUrl($id) {
+        $taxon = Category::where('id',$id)->first();
+
+        if ( $taxon->parent_id > 0 ) {
+            
+           $urlString = $this->buildUrlHierarchy($taxon->parent_id,'');
+           return $urlString.$taxon->url_latin; 
+
+        }
+        else {
+            return $taxon->url_latin;
+        }
+
+    }
+
     public function index() {
         $rows = Category::all()->toArray();
         $tree = $this->buildTree($rows);

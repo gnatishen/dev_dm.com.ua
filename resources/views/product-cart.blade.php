@@ -36,7 +36,6 @@
 	    </div>
 	  </div>
 	</div>
-	{!! Breadcrumbs::render('category', $category) !!}
 @endsection
 @section('content')
 	<div class="product-cart row">

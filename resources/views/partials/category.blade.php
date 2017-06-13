@@ -6,7 +6,9 @@
 
 <li class="{{ $class }}">
 
-	<a href="/catalog/{{ $category['id'] }}" class="dropdown-toggle">{{ $category['title'] }} @if ( count($category['children']) > 0 ) <span class="caret"></span> @endif </a>
+    @inject('url', 'App\Http\Controllers\CategoryController')
+                        
+	<a href="{!! $url->buildUrl($category['id']) !!}" class="dropdown-toggle">{{ $category['title'] }} @if ( count($category['children']) > 0 ) <span class="caret"></span> @endif </a>
 
 	@if ( count($category['children']) > 0 )
 	    <ul class="dropdown-menu" role="menu">

@@ -40,12 +40,8 @@ class ProductController extends Controller
         return response()->json($message);
     }
 
-	public function show($url_latin) {
+	public function show($product) {
 
-       if ( !$product = Product::all()->where('url_latin',$url_latin)->first() ) {
-
-            return view('errors.404');
-       }
         $category = Category::all()->where('id', $product->category_id)->first();      
         $productTitle = $product->title.' | GrandMoto';
         $metaText = $product->title.': цена '.$product->price.' грн. Посмотрите на сайте описание и фотографии. Доставка 1-2 дня.';
