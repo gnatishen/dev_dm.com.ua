@@ -136,18 +136,29 @@ Route::get('/uk', function ()
 //Route::get('resizeImage', 'ImageController@resizeImage');
 //Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
 
-// Route::get('catalog/{id}','CategoryController@show')->name('category');
-// Route::get('catalog/{url_latin}','CategoryController@showByLatin')->name('category_latin');
-// Route::get('ru/catalog/{url_latin}',function($url_latin)
-// 	{
+//Route::get('catalog/{id}','CategoryController@show')->name('category');
 
-// 		return redirect('catalog/'.$url_latin);
-// 	});
-// Route::get('uk/catalog/{url_latin}',function($url_latin)
-// 	{
+Route::get('catalog/{id}',function($id)
+ 	{
+            $url_latin = App\Category::where('id',$id)->first()->url_latin;
+            return redirect($url_latin);
+ 	});
+Route::get('catalog/{url_latin}',function($url_latin)
+ 	{
 
-// 		return redirect('catalog/'.$url_latin);
-// 	});
+ 		return redirect($url_latin);
+ 	});
+        
+Route::get('ru/catalog/{url_latin}',function($url_latin)
+ 	{
+
+ 		return redirect($url_latin);
+ 	});
+Route::get('uk/catalog/{url_latin}',function($url_latin)
+	{
+
+ 		return redirect($url_latin);
+	});
 
 
 //Route::get('admin/product/import', 'ProductController@import');
@@ -226,4 +237,4 @@ Route::post('/mailing/create',['as'=>'mailingAddPost','uses'=>'MailingController
 
 
 
-Route::get('{url}','UrlController@parseUrl')->where('url','^[a-zA-Z0-9-_\/]+$');
+Route::get('{url}','UrlController@parseUrl')->where('url','^[a-zA-Z0-9-_\/]+$')->name('urls');

@@ -14,7 +14,6 @@ class UrlController extends Controller
 		$linkArray = explode('/', $url);
 		$topCategories = Category::where('parent_id',0)->get();
 		
-
 		foreach ($topCategories as $key => $value) {
 			if ( end($linkArray) == $value->url_latin ) {
 
@@ -33,7 +32,7 @@ class UrlController extends Controller
 		}
 
 		
-		dd(end($linkArray));
+		return view('errors.404');
 	}
 
 }

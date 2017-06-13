@@ -21,7 +21,8 @@
 						</h2>
 						@inject('childProducts', 'App\Http\Controllers\CategoryController')
                         {!! $childProducts->showProductsChild($child->id) !!}
-                        <a class="link" href="/catalog/{{$child->id}}">ПЕРЕЙТИ В КАТЕГОРИЮ</a>
+                        @inject('url', 'App\Http\Controllers\CategoryController')
+                        <a class="link" href="/{!! $url->buildUrl($child->id) !!}">ПЕРЕЙТИ В КАТЕГОРИЮ</a>
 					</li>
 
 				@endforeach
