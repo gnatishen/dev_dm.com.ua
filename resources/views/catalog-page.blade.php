@@ -29,7 +29,6 @@
 
 				</ul>
 			</div>
-
 		@endif
 		<div class="catalog-items">
 			<div class="row">
