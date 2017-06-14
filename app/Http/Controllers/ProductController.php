@@ -9,6 +9,7 @@ use App\Category;
 use Image;
 use File;
 use Excel;
+use Slug;
 
 class ProductController extends Controller
 {
@@ -151,6 +152,13 @@ class ProductController extends Controller
             }
         }
         
+        //Slug
+        $latin = Slug::make($request->title);
+
+        if ( !$request->body ) {
+            $request->body = 'Для этого продукта пока нету описания.';
+        }
+
         //dump($product);die;
         $product ->fill(array(
                   'product_type_id' =>  '1',
@@ -158,7 +166,7 @@ class ProductController extends Controller
                   'title' => $request->title,
                   'body' => $request->body,
                   'price' => $request->price,
-                  'url_latin' => $request->url_latin,
+                  'url_latin' => str_slug($latin, $separator = '-'),
                   'attributes' => '',
                   'stock' => $request->stock,
                   'images'=> trim($product->images)

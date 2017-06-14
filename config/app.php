@@ -190,6 +190,9 @@ return [
         //excel
         'Maatwebsite\Excel\ExcelServiceProvider',
 
+        //transliteration
+        Alexusmai\Ruslug\RuslugServiceProvider::class,
+
     ],
 
     /*
@@ -244,6 +247,8 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+        'Slug' => Alexusmai\Ruslug\RuslugFacade::class,
+
 
     ],
 

@@ -33,12 +33,6 @@
 </div>
 <div class="col-md-12">
 	<p>
-		<label for="stock">Название транслитом</label>
-		{!! Form::text('url_latin', null,array('class' => 'form-control','placeholder'=>'Название транслитом','required' => 'required')) !!}
-	</p>
-</div>
-<div class="col-md-12">
-	<p>
 		{!! Form::text('title', null,array('class' => 'form-control','placeholder'=>'Название','required' => 'required')) !!}
 	</p>
 </div>
