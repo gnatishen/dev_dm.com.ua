@@ -252,6 +252,7 @@ a:hover {
   text-align: center;
   font-size: 12px;
   font-family: "Roboto Condensed";
+  line-height: 1.2;
 }
 .catalog-items .product-item .product-price {
   text-align: center;
@@ -259,7 +260,7 @@ a:hover {
   font-weight: bold;
 }
 .catalog-items .product-item .product-title {
-  height: 30px;
+  height: 55px;
 }
 .catalog-items .product-item .image {
   height: 120px;
@@ -668,6 +669,21 @@ a:hover {
 .admin-page.categories-edit .content-container {
   text-align: left;
   line-height: 1.6;
+}
+.breadcrumbs {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e5e5e5;
+  border: 1px solid #e5e5e5;
+}
+.breadcrumbs a {
+  text-decoration: underline;
+}
+.breadcrumbs .container-fluid {
+  text-align: left;
+}
+.breadcrumbs .breadcrumb-current {
+  color: #e74c3c;
 }
 
 

@@ -201,24 +201,6 @@ Route::post('order/addCart', [
 		'as'=>'orderAddCart',
 		'uses'=>'OrderController@orderAddCart']);
 
-
-
-Breadcrumbs::register('home', function($breadcrumbs) {
-    $breadcrumbs->push('Home', route('home'));
-});
-
-Breadcrumbs::register('category', function($breadcrumbs, $category) {
-    if ( $category->parent_id != 0 ) {
-    	$category_p = APP\Category::all()->where('id', $category->parent_id)->first();
-        $breadcrumbs->push($category_p->title, route('category', $category_p->id));
-    }
-    else
-        $breadcrumbs->parent('home');
-
-    $breadcrumbs->push($category->title, route('category', $category->id));
-});
-
-
 //static pages routes
 Route::get('page/{url_latin}', 'PagesController@show');
 
@@ -235,6 +217,6 @@ Route::get('/promo/{id}',['as'=>'promoCart','uses'=>'PromoController@show']);
 
 Route::post('/mailing/create',['as'=>'mailingAddPost','uses'=>'MailingController@addPost']);
 
-
+Route::get('/breadcrumbs/{id}',['as'=>'bradcrumbs','uses'=>'BreadcrumbsController@breadcrumbsCatalog']);
 
 Route::get('{url}','UrlController@parseUrl')->where('url','^[a-zA-Z0-9-_\/]+$')->name('urls');

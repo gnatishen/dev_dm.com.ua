@@ -36,8 +36,18 @@
 	    </div>
 	  </div>
 	</div>
+
+	@inject('breadcrumb', 'App\Http\Controllers\BreadcrumbsController')
+	
+	<div class="breadcrumbs">
+	    <div class="container-fluid">
+	    	<a href="/">Главная</a> / {!! $breadcrumb->breadcrumbsCart($category->id) !!}  <span class="breadcrumb-current">{{$product->title}}</span>
+	    </div>		
+	</div>
+
 @endsection
 @section('content')
+
 	<div class="product-cart row">
 		<?php $images = explode(' ', $product->images); ?>
 

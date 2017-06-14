@@ -2,6 +2,16 @@
 
 @section('slider')
 
+	@inject('breadcrumb', 'App\Http\Controllers\BreadcrumbsController')
+	
+	<div class="breadcrumbs">
+	    <div class="container-fluid">
+	    	<a href="/">Главная</a> / {!! $breadcrumb->breadcrumbs($category->id) !!}
+	    </div>		
+	</div>
+
+    
+
 @endsection
 @section('content')
 
