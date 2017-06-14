@@ -249,7 +249,6 @@ return [
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         'Slug' => Alexusmai\Ruslug\RuslugFacade::class,
 
-
     ],
 
 ];

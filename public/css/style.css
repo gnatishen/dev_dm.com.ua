@@ -685,7 +685,9 @@ a:hover {
 .breadcrumbs .breadcrumb-current {
   color: #e74c3c;
 }
-
+.facebook-block {
+  padding-bottom: 20px;
+}
 
 @media (min-width: 960px) {
   .navbar {

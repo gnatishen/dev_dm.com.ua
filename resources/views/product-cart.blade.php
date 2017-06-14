@@ -119,7 +119,9 @@
 			<div class="article">
 				Артикул {{ $product->id }}
 			</div>
-
+			<div class="facebook-block">
+				<div class="fb-like" data-href="{{url('/')}}/{{$product->url_latin}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+			</div>
 
 			<div class="price">
 				{{ $product->price }} ГРН.
