@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('slider')
@@ -51,8 +50,8 @@
 									<?php if ( $image[0] == '' ) $image[0] = 'nophoto.png' ?>
 									<img src="/images/products/catalog/{{ $image[0] }}" ALT="{{ $product['title'] }}" />
 								</div>
-								<div class="product-title"><h4>{{ $product['title'] }}</h4></div>
-								<div class="product-price"><h3>{{ $product['price'] }} ГРН.</h3></div>
+								<div class="product-title"><h3>{{ $product['title'] }}</h3></div>
+								<div class="product-price">{{ $product['price'] }} ГРН.</div>
 								<?php
 								 	if ( $user = Auth::user() ) {
 							            if ( $user->role == 'admin')

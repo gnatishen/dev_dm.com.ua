@@ -2,7 +2,7 @@
 /public/storage
 /public/hot
 /public/images
-/public/robots*
+/public/robots.txt
 /storage/*.key
 /vendor
 /.idea
@@ -10,3 +10,4 @@
 Homestead.json
 Homestead.yaml
 .env
+robots.txt
