@@ -144,9 +144,12 @@ a:hover {
 }
 .region-top-links {
   width: 300px;
-  float: right;
-  text-align: right;
+  text-align: center;
 }
+.top-links a {
+  color: #fff;
+}
+.top-links l
 .region-top-links H4, .region-top-links H3 {
     float: left;
     padding: 0 5px;
@@ -168,6 +171,13 @@ a:hover {
     background-color: #1e1e1e;
     text-align: right;
 }
+.top-links-menu {
+  float: right;
+}
+.top-links-menu a:hover {
+  background-color: #000 !important;
+  color: #e74c3c;
+}
 #navbar .block {
     display: inline-block;
     vertical-align: middle;
@@ -177,7 +187,6 @@ a:hover {
     font-family: "BebasNeueBold";
     font-size: 22px;
     padding: 5px 20px;
-    text-align: right;
 }
 .region-top-links H3 {
     margin: 0;
@@ -957,5 +966,8 @@ a:hover {
     }
     .email-line .maling-form .form-line {
       padding: 5px;
+    }
+    .top-links-menu li {
+      float: left;
     }
 }

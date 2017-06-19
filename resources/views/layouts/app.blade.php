@@ -59,16 +59,25 @@
     </div>
     <header id="navbar" role="banner">
         <div class="top-links row">
-            <div class="block col-md-6 col-xs-6">
+            <div class="block col-md-4 col-xs-6">
                 <div class="title-container">
                     <a class="name navbar-brand" href="/" title="Главная">GRANDMOTO.COM.UA</a>
                 </div>
             </div>
-            <div class="block col-md-6 col-xs-6 region-top-links"> 
+
+            <div class="block col-md-4 col-xs-12 region-top-links"> 
                 <div id="phone-text">
                     Тел: (093) 359 44 14<br>
                     <div class="phone-2">(068) 207 80 10 </div>
                 </div>   
+            </div>
+            <div class="top-links-menu col-md-4 col-xs-12">
+                   <ul class="menu nav navbar-nav">
+                        <li class="first leaf menu-mlid-1109"><a title="" href="/actions">Акции</a></li>
+                        <li class="leaf menu-mlid-1110"><a title="" href="/kak-kupit">Как купить</a></li>
+                        <li class="leaf menu-mlid-1111"><a title="" href="/contacts">О нас</a></li>
+                        <li class="leaf menu-mlid-1112"><a title="" href="/guestbook">Отзывы о магазине </a></li>
+                    </ul>
             </div>
         </div>
         <div id="top-line" class="row">
