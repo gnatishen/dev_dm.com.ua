@@ -16,6 +16,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	Route::get('admin',function(){
 		return view('admin-page');
 	});
+
 	//admin slides
 	Route::get('admin/slide/add', 'SliderController@add');
 	Route::post('admin/slide/addPost',['as'=>'addPost','uses'=>'SliderController@addPost']);
@@ -104,6 +105,11 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 
 });
 
+Route::get('page/{url_latin}',function($url_latin)
+	{
+		return redirect($url_latin);
+	});
+
 //redirect table delete cateries
 Route::get('/catalog/93',function()
 	{
@@ -166,12 +172,6 @@ Route::get('uk/catalog/{url_latin}',function($url_latin)
  		return redirect($url_latin);
 	});
 
-
-//Route::get('admin/product/import', 'ProductController@import');
-//Route::get('admin/product/img_resize','ProductController@imgResize');
-
-
-//Route::get('/{url_latin}','ProductController@show');
 Route::get('content/{url_latin}',function($url_latin)
 	{
 
@@ -187,12 +187,7 @@ Route::get('uk/content/{url_latin}',function($url_latin)
 
 		return redirect('content/'.$url_latin);
 	});
-Route::get('page/{$url_latin}',function($url_latin)
-	{
 
-		return redirect($url_latin);
-	});
-//Route::get('admin/taxon/import', 'TaxonController@import');
 
 //cart
 Route::get('cart','CartController@show');
@@ -230,7 +225,6 @@ Route::get('ru/guestbook',function()
 	});
 
 
-
 Auth::routes();
 Route::get('register', function(){
 	return redirect('/login');
@@ -244,5 +238,7 @@ Route::get('/promo/{id}',['as'=>'promoCart','uses'=>'PromoController@show']);
 Route::post('/mailing/create',['as'=>'mailingAddPost','uses'=>'MailingController@addPost']);
 
 Route::get('/breadcrumbs/{id}',['as'=>'bradcrumbs','uses'=>'BreadcrumbsController@breadcrumbsCatalog']);
+
+
 
 Route::get('{url}','UrlController@parseUrl')->where('url','^[a-zA-Z0-9-_\/]+$')->name('urls');

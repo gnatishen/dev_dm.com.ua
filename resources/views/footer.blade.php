@@ -12,7 +12,7 @@
             <section class="block col-md-3  col-xs-12">
                 <h2 class="block-title">ЦЕНТР ПОДДЕРЖКИ</h2>
                 <ul class="menu nav">
-                    <li class="leaf"><a href="/page/oplata-dostavka">Оплата и доставка</a></li>
+                    <li class="leaf"><a href="/oplata-dostavka">Оплата и доставка</a></li>
                     <li class="leaf"><a title="" href="/articles">Полезные статьи</a></li>
                     <li class="leaf"><a title="" href="/podarochnye-sertifikaty">Подарочные сертификаты</a></li>
                 </ul>
@@ -21,9 +21,9 @@
                 <h2 class="block-title">АКЦИИ &amp; НОВОСТИ</h2>
                 <div class="menu-block-wrapper menu-block-1 menu-name-menu-secondmenu parent-mlid-0 menu-level-1">
                     <ul class="menu nav">
-                        <li class="first leaf menu-mlid-1109"><a title="" href="/page/actions">Акции</a></li>
-                        <li class="leaf menu-mlid-1110"><a title="" href="/page/kak-kupit">Как купить</a></li>
-                        <li class="leaf menu-mlid-1111"><a title="" href="/page/contacts">О нас</a></li>
+                        <li class="first leaf menu-mlid-1109"><a title="" href="/actions">Акции</a></li>
+                        <li class="leaf menu-mlid-1110"><a title="" href="/kak-kupit">Как купить</a></li>
+                        <li class="leaf menu-mlid-1111"><a title="" href="/contacts">О нас</a></li>
                         <li class="leaf menu-mlid-1112"><a title="" href="/guestbook">Отзывы о магазине </a></li>
                     </ul>
                 </div>
