@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Page;
 
 class UrlController extends Controller
 {
@@ -31,6 +32,10 @@ class UrlController extends Controller
 			return app('App\Http\Controllers\CategoryController')->show($subcategory->id);
 		}
 
+		if ( $page = Page::where('url_latin', end($linkArray))->first() )
+		{
+			return app('App\Http\Controllers\PagesController')->show($page->url_latin);
+		}
 		
 		return view('errors.404');
 	}

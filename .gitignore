@@ -7,6 +7,7 @@
 /vendor
 /.idea
 /bootstrap
+/storage/logs/laravel.log
 Homestead.json
 Homestead.yaml
 .env

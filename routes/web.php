@@ -187,6 +187,11 @@ Route::get('uk/content/{url_latin}',function($url_latin)
 
 		return redirect('content/'.$url_latin);
 	});
+Route::get('page/{$url_latin}',function($url_latin)
+	{
+
+		return redirect($url_latin);
+	});
 //Route::get('admin/taxon/import', 'TaxonController@import');
 
 //cart
@@ -211,6 +216,19 @@ Route::post('order/addCart', [
 Route::get('guestbook', 'GuestbookController@index');
 
 Route::post('post/create',['as'=>'postCreate','uses'=>'GuestbookController@create']);
+
+Route::get('uk/guestbook',function()
+	{
+
+		return redirect('guestbook');
+	});
+
+Route::get('ru/guestbook',function()
+	{
+
+		return redirect('guestbook');
+	});
+
 
 
 Auth::routes();
