@@ -8,7 +8,7 @@ use App\Guestbook;
 class GuestbookController extends Controller
 {
     public function index() {
-    	$posts = Guestbook::orderBy('id', 'desc')->where('parent_id',0)->paginate(50);
+    	$posts = Guestbook::orderBy('id', 'desc')->where('parent_id',0)->paginate(15);
     	$answers = Guestbook::where('parent_id','>',0)->get();
 
     	return view('guestbook.index')
