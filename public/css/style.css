@@ -289,11 +289,12 @@ a:hover {
 
 /* ----------- */
 
-.catalog-items .product-item .product-price {
 
-}
 .catalog-items .product-item .product-title {
-  height: 30px;
+  height: 60px;
+}
+.catalog-items .product-item .product-title H3 {
+  line-height: 16px;
 }
 .catalog-items .product-item .image {
   height: 120px;
@@ -762,6 +763,11 @@ a:hover {
 
 
 @media (min-width: 960px) {
+
+  .catalog-items .product-item .product-price {
+    font-size: 22px;
+    font-weight: bold;
+  }
   .navbar {
       border: 1px solid transparent;
       margin-bottom: 0;
@@ -842,6 +848,11 @@ a:hover {
 
 
 @media (max-width: 760px) {
+
+  .catalog-items .product-item .product-price {
+  font-size: 16px;
+  font-weight: bold;
+  }
   .childs-li {
     margin-left: 0px;
   }
