@@ -13,7 +13,10 @@ class CreateGuestbookTable extends Migration
      */
     public function up()
     {
-        Schema::create('guestbook', function (Blueprint $table) {
+        Schema::create('guestbooks', function (Blueprint $table) {
+            $table->string('name');
+            $table->longtext('body');
+            $table->integer('parent_id')->default(0);
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +29,6 @@ class CreateGuestbookTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guestbook');
+        Schema::dropIfExists('guestbooks');
     }
 }

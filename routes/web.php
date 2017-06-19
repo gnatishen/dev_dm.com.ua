@@ -96,6 +96,12 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 		return redirect('admin/promo/admin');
 	})->name('promoDelete');
 
+	Route::post('post/admincreate',['as'=>'postAdminCreate','uses'=>'GuestbookController@adminCreate']);
+	Route::delete('admin/post/delete/{guestbook}', function( \App\Guestbook $guestbook ) {
+		$guestbook->delete();
+		return redirect('/guestbook');
+	})->name('postDelete');
+
 });
 
 //redirect table delete cateries
@@ -201,8 +207,10 @@ Route::post('order/addCart', [
 		'as'=>'orderAddCart',
 		'uses'=>'OrderController@orderAddCart']);
 
-//static pages routes
-Route::get('page/{url_latin}', 'PagesController@show');
+//questbook
+Route::get('guestbook', 'GuestbookController@index');
+
+Route::post('post/create',['as'=>'postCreate','uses'=>'GuestbookController@create']);
 
 
 Auth::routes();

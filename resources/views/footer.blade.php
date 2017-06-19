@@ -24,6 +24,7 @@
                         <li class="first leaf menu-mlid-1109"><a title="" href="/page/actions">Акции</a></li>
                         <li class="leaf menu-mlid-1110"><a title="" href="/page/kak-kupit">Как купить</a></li>
                         <li class="leaf menu-mlid-1111"><a title="" href="/page/contacts">О нас</a></li>
+                        <li class="leaf menu-mlid-1112"><a title="" href="/guestbook">Отзывы о магазине </a></li>
                     </ul>
                 </div>
             </section>

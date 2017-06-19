@@ -193,6 +193,9 @@ return [
         //transliteration
         Alexusmai\Ruslug\RuslugServiceProvider::class,
 
+        //google captcha
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
     ],
 
     /*
